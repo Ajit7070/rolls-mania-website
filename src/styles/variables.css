@@ -1,0 +1,92 @@
+/* =========================================
+   ROLLS MANIA
+   DESIGN VARIABLES
+   ========================================= */
+
+:root {
+  /* =========================================
+     BRAND COLORS
+     ========================================= */
+
+  --rm-cream: #f6f1ee;
+  --rm-light-pink: #f6dcd3;
+  --rm-pink: #ebbbaa;
+  --rm-peach: #edae98;
+  --rm-orange: #fbbc93;
+  --rm-soft-pink: #f7bfb4;
+
+  --rm-rose: #d4938b;
+  --rm-dark-rose: #97534c;
+  --rm-deep-rose: #95483f;
+  --rm-rose-gold: #b76e79;
+
+  /* =========================================
+     BRAND GREEN
+     ========================================= */
+
+  --rm-green: #a6d8cf;
+  --rm-green-dark: #72b9ac;
+
+  /* =========================================
+     NEUTRALS
+     ========================================= */
+
+  --rm-white: #ffffff;
+  --rm-black: #000000;
+
+  --rm-dark: #202020;
+  --rm-text: #555555;
+  --rm-muted: #777777;
+
+  /* =========================================
+     TYPOGRAPHY
+     ========================================= */
+
+  --rm-heading-weight: 900;
+  --rm-body-weight: 400;
+
+  /* =========================================
+     LAYOUT
+     ========================================= */
+
+  --rm-container: 1120px;
+  --rm-container-large: 1200px;
+
+  --rm-section-padding: 90px;
+  --rm-section-padding-mobile: 55px;
+
+  /* =========================================
+     BORDER RADIUS
+     ========================================= */
+
+  --rm-radius-sm: 6px;
+  --rm-radius-md: 12px;
+  --rm-radius-lg: 20px;
+  --rm-radius-xl: 30px;
+  --rm-radius-pill: 999px;
+
+  /* =========================================
+     SHADOWS
+     ========================================= */
+
+  --rm-shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.06);
+  --rm-shadow-md: 0 10px 35px rgba(0, 0, 0, 0.1);
+  --rm-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
+
+  /* =========================================
+     TRANSITIONS
+     ========================================= */
+
+  --rm-transition-fast: 0.2s ease;
+  --rm-transition: 0.35s ease;
+  --rm-transition-slow: 0.6s ease;
+
+  /* =========================================
+     Z-INDEX
+     ========================================= */
+
+  --rm-z-header: 1000;
+  --rm-z-overlay: 1100;
+  --rm-z-modal: 1200;
+  --rm-z-cursor: 1300;
+}

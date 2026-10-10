@@ -1,0 +1,1998 @@
+/* =========================================================
+   ROLLS MANIA — CONTACT PAGE
+   Uses existing global variables and typography
+   ========================================================= */
+
+.contactPage {
+  width: 100%;
+  overflow: clip;
+  background: var(--rm-white);
+  color: var(--rm-dark);
+}
+
+.contactPage main {
+  width: 100%;
+}
+
+/* =========================================================
+   HERO
+   Place contact-bg.png at:
+   /assets/rolls-mania/contact/contact-bg.png
+   ========================================================= */
+
+.contactHero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: clamp(480px, 46vw, 720px);
+  display: flex;
+  align-items: center;
+  /* background-color: var(--rm-green); */
+  background-image: url("/assets/rolls-mania/contact/contact-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-top: -80px;
+}
+/* =========================================
+   CONTACT HERO FOOD IMAGE
+========================================= */
+
+.heroFoodWrap {
+  position: absolute;
+  z-index: 1;
+
+  right: max(2%, calc((100% - var(--rm-container)) / 2 - 10px));
+  bottom: -1%;
+
+  /* width: clamp(450px, 48vw, 790px); */
+  width: clamp(380px, 42vw, 680px);
+
+  pointer-events: none;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.heroFoodImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  user-select: none;
+
+  filter: drop-shadow(0 18px 16px rgba(23, 65, 57, 0.13));
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .heroFoodWrap {
+    /* right: -4%; */
+    right: 4%;
+    bottom: 1%;
+    width: 51%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .heroFoodWrap {
+    /* right: -8%; */
+    right: 2%;
+    bottom: 0;
+    width: min(76%, 430px);
+    opacity: 0.96;
+  }
+
+  .heroFoodImage {
+    filter: drop-shadow(0 10px 12px rgba(23, 65, 57, 0.12));
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .heroFoodWrap {
+    /* right: -12%; */
+    /* right: 40px; */
+    right: 20px;
+    bottom: 0;
+    width: 82%;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroFoodWrap {
+    /* right: -15%; */
+    right: 0%;
+    width: 85%;
+  }
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 80px);
+  max-width: var(--rm-container);
+  margin-inline: auto;
+  padding-block: 75px;
+}
+
+.heroContent {
+  width: 51%;
+  max-width: 590px;
+}
+
+.heroEyebrow {
+  margin: 0 0 16px;
+  color: #fff;
+  text-transform: uppercase;
+  /* font-family: var(--rm-font-ui); */
+  font-family: Lato-Heavy, sans-serif;
+  font-size: clamp(15px, 1.3vw, 22px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.heroTitle {
+  margin: 0;
+  color: #fff;
+  font-family: var(--rm-font-display);
+  font-size: clamp(56px, 6.5vw, 100px);
+  font-weight: 700;
+  line-height: 0.87;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.heroTitle span {
+  display: block;
+}
+
+.heroDescription {
+  margin: 25px 0 28px;
+  color: #fff;
+  /* font-family: var(--rm-font-body); */
+  font-family: var(--font-roboto), sans-serif;
+  font-size: clamp(15px, 1.2vw, 19px);
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 470px;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 42px;
+  padding: 10px 17px;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--rm-dark);
+  /* font-family: var(--rm-font-ui); */
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  transition: color var(--rm-transition-fast);
+}
+
+.breadcrumb a:hover {
+  color: var(--rm-dark-rose);
+}
+
+.breadcrumb svg {
+  width: 14px;
+  height: 14px;
+}
+
+.breadcrumb span {
+  color: var(--rm-dark-rose);
+}
+
+/* =========================================================
+   CONTACT FORM SECTION
+   ========================================================= */
+
+.formSection {
+  position: relative;
+  z-index: 3;
+  padding: 0 20px 76px;
+  background: var(--rm-white);
+}
+
+.formContainer {
+  width: 100%;
+  /* max-width: 700px; */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* .formCard {
+  position: relative;
+  padding: clamp(25px, 4vw, 48px);
+  border: 1px solid rgba(151, 83, 76, 0.07);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 15px 55px rgba(32, 32, 32, 0.09);
+} */
+
+.formCard {
+  position: relative;
+  padding: clamp(25px, 4vw, 48px);
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sectionEyebrow {
+  margin: 0 0 7px;
+  color: var(--rm-green-dark);
+  font-family: var(--rm-font-heading);
+  font-size: clamp(14px, 1.4vw, 19px);
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.formTitle {
+  margin: 0 0 24px;
+  color: var(--rm-black);
+  font-family: var(--rm-font-display);
+  font-size: clamp(30px, 3.2vw, 43px);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.formFields {
+  display: grid;
+  gap: 15px;
+}
+
+.field {
+  min-width: 0;
+}
+
+.field input,
+.field textarea,
+.verificationRow input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: border-color var(--rm-transition-fast),
+    box-shadow var(--rm-transition-fast);
+}
+
+.field input {
+  height: 47px;
+  padding: 0 15px;
+}
+
+.field textarea {
+  min-height: 115px;
+  padding: 13px 15px;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder,
+.verificationRow input::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+.field input:focus,
+.field textarea:focus,
+.verificationRow input:focus {
+  outline: none;
+  border-color: var(--rm-green-dark);
+  box-shadow: 0 0 0 3px rgba(166, 216, 207, 0.23);
+}
+
+.field small {
+  display: block;
+  margin-top: 5px;
+  color: var(--rm-muted);
+  font-family: var(--rm-font-body);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.verificationRow {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.verificationCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid #e1e7f2;
+  border-radius: 4px;
+  background: #1557b0;
+  color: #fff;
+  font-family: var(--rm-font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+.verificationRow input {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.verificationHelp {
+  margin: 10px 0 17px;
+  color: var(--rm-muted);
+  font-family: var(--rm-font-body);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.formStatus {
+  margin: 0 0 15px;
+  padding: 12px 14px;
+  border-radius: 5px;
+  background: #f6f1ee;
+  color: var(--rm-dark-rose);
+  font-family: var(--rm-font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 49px;
+  padding: 12px 18px;
+  border: 1px solid var(--rm-black);
+  border-radius: 5px;
+  background: var(--rm-black);
+  color: #fff;
+  font-family: var(--rm-font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--rm-transition), color var(--rm-transition),
+    border-color var(--rm-transition), transform var(--rm-transition);
+}
+
+.submitButton svg {
+  width: 17px;
+  height: 17px;
+  transition: transform var(--rm-transition-fast);
+}
+
+.submitButton:hover {
+  border-color: var(--rm-dark-rose);
+  background: var(--rm-dark-rose);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.submitButton:hover svg {
+  transform: translateX(4px);
+}
+
+.formDecoration {
+  position: absolute;
+  top: 70px;
+  right: max(5%, calc((100% - var(--rm-container)) / 2));
+  display: flex;
+  gap: 8px;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+
+.formDecoration span {
+  display: block;
+  width: 9px;
+  height: 36px;
+  border-radius: var(--rm-radius-pill);
+  background: var(--rm-green-dark);
+}
+
+.formDecoration span:nth-child(2) {
+  height: 27px;
+  margin-top: 13px;
+  background: var(--rm-green);
+}
+
+.formDecoration span:nth-child(3) {
+  height: 23px;
+  margin-top: 25px;
+  background: var(--rm-rose);
+}
+
+/* Screen-reader-only labels */
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   CONTACT INFORMATION
+   ========================================================= */
+
+.contactInfoSection {
+  position: relative;
+  padding: 10px 0 85px;
+  background: #fff;
+}
+
+.infoHeading {
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.infoEyebrow {
+  margin: 0 0 8px;
+  color: var(--rm-rose);
+  font-family: var(--rm-font-heading);
+  font-size: clamp(14px, 1.5vw, 19px);
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.infoTitle {
+  margin: 0;
+  color: var(--rm-green-dark);
+  font-family: var(--rm-font-display);
+  font-size: clamp(31px, 4.4vw, 60px);
+  font-weight: 700;
+  line-height: 0.98;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.infoCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 220px;
+  padding: 26px 17px 23px;
+  border: 1px solid rgba(151, 83, 76, 0.05);
+  border-radius: 20px;
+  background: #faf6f3;
+  text-align: center;
+  transition: transform var(--rm-transition), box-shadow var(--rm-transition),
+    border-color var(--rm-transition);
+}
+
+.infoCard:hover {
+  transform: translateY(-7px);
+  border-color: rgba(114, 185, 172, 0.3);
+  box-shadow: var(--rm-shadow-md);
+}
+
+.infoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 19px;
+  border-radius: 50%;
+  color: var(--rm-black);
+}
+
+.infoIcon svg {
+  width: 27px;
+  height: 27px;
+  stroke-width: 2.2;
+}
+
+.iconRose {
+  background: var(--rm-pink);
+}
+
+.iconMint {
+  background: var(--rm-green);
+}
+
+.infoCard h3 {
+  margin: 0 0 8px;
+  color: var(--rm-black);
+  font-family: var(--rm-font-heading);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.infoDetail {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 5px;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+a.infoDetail {
+  transition: color var(--rm-transition-fast);
+}
+
+a.infoDetail:hover {
+  color: var(--rm-dark-rose);
+}
+
+.infoDescription {
+  margin: 0;
+  color: var(--rm-text);
+  font-family: var(--rm-font-body);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   PROMOTIONAL BANNER
+   ========================================================= */
+
+/* =========================================
+   CONTACT PROMOTIONAL BANNER
+   Torn-paper background image
+========================================= */
+
+.contactPromo {
+  margin-bottom: -80px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+
+  background-color: transparent;
+  background-image: url("/assets/rolls-mania/contact/contact-promo-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background-size: 100% 100%; */
+  background-size: 116% 132%;
+
+  color: #fff;
+}
+
+/* Use the torn edges from the actual image */
+.contactPromo::before,
+.contactPromo::after {
+  display: none;
+}
+
+.contactPromo::before {
+  top: -1px;
+}
+
+.contactPromo::after {
+  bottom: -1px;
+  transform: rotate(180deg);
+}
+
+.promoInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 300px;
+  padding-block: 55px;
+}
+
+.promoContent {
+  position: relative;
+  z-index: 2;
+  width: 56%;
+  /* padding: 15px 0; */
+  padding: 20px 65px;
+}
+
+.promoEyebrow {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.85);
+  /* font-family: var(--rm-font-ui); */
+  font-family: var(--rm-font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.promoTitle {
+  margin: 0;
+  color: #fff;
+  font-family: var(--rm-font-display);
+  font-size: clamp(38px, 4.7vw, 66px);
+  font-weight: 700;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.promoTitle span {
+  display: block;
+}
+
+.promoDescription {
+  max-width: 410px;
+  margin: 16px 0 20px;
+  color: rgba(255, 255, 255, 0.93);
+  font-family: var(--rm-font-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.promoButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--rm-dark-rose);
+  font-family: var(--rm-font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background var(--rm-transition), color var(--rm-transition),
+    transform var(--rm-transition);
+}
+
+.promoButton svg {
+  width: 15px;
+  height: 15px;
+  transition: transform var(--rm-transition-fast);
+}
+
+.promoButton:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  color: #fff;
+}
+
+.promoButton:hover svg {
+  transform: translateX(4px);
+}
+
+.promoDoodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.doodleOne,
+.doodleTwo,
+.doodleThree {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--rm-font-body);
+  line-height: 1;
+}
+
+.doodleOne {
+  top: 22%;
+  left: 5%;
+  font-size: 70px;
+  transform: rotate(-20deg);
+}
+
+.doodleTwo {
+  right: 4%;
+  bottom: 15%;
+  font-size: 85px;
+  transform: rotate(25deg);
+}
+
+.doodleThree {
+  top: 15%;
+  right: 17%;
+  font-size: 40px;
+  transform: rotate(15deg);
+}
+
+/* =========================================
+   PROMOTIONAL FOOD IMAGE
+========================================= */
+
+.promoFoodWrap {
+  position: absolute;
+  z-index: 1;
+
+  left: max(1%, calc((100% - var(--rm-container)) / 2 - 5px));
+  top: 50%;
+
+  width: clamp(350px, 47vw, 720px);
+  transform: translateY(-45%);
+
+  pointer-events: none;
+  will-change: transform, opacity;
+
+  animation: promoFoodEntrance 1.15s cubic-bezier(0.16, 1, 0.3, 1) both,
+    promoFoodFloat 5s ease-in-out 1.15s infinite;
+}
+
+.promoFoodImage {
+  display: block;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter: drop-shadow(0 20px 24px rgba(62, 35, 29, 0.18));
+
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Smooth entrance from the left */
+
+@keyframes promoFoodEntrance {
+  from {
+    opacity: 0;
+    transform: translate(-65px, -38%) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, -45%) scale(1);
+  }
+}
+
+/* Subtle floating effect */
+
+@keyframes promoFoodFloat {
+  0%,
+  100% {
+    transform: translateY(-45%);
+  }
+
+  50% {
+    transform: translateY(calc(-45% - 12px));
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 991px) {
+  .promoFoodWrap {
+    /* left: -3%; */
+    left: 10%;
+    /* width: 48%; */
+    width: 38%;
+  }
+
+  .promoContent {
+    width: 54%;
+    padding: 20px 25px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .promoInner {
+    min-height: 470px;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 35px 22px 220px;
+  }
+
+  .promoContent {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .promoFoodWrap {
+    left: 50%;
+    top: auto;
+    bottom: -4px;
+
+    /* width: min(90%, 420px); */
+    width: min(72%, 330px);
+    transform: translateX(-50%);
+
+    animation: promoFoodMobileEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both,
+      promoFoodMobileFloat 5s ease-in-out 1s infinite;
+  }
+
+  @keyframes promoFoodMobileEntrance {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 35px) scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+    }
+  }
+
+  @keyframes promoFoodMobileFloat {
+    0%,
+    100% {
+      transform: translate(-50%, 0);
+    }
+
+    50% {
+      transform: translate(-50%, -8px);
+    }
+  }
+
+  .promoDescription {
+    margin-inline: auto;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .promoInner {
+    min-height: 430px;
+    padding: 30px 16px 190px;
+  }
+
+  .promoFoodWrap {
+    /* width: 96%; */
+    width: 78%;
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .promoFoodWrap {
+    animation: none;
+    opacity: 1;
+    transform: translateY(-45%);
+  }
+
+  .promoFoodImage {
+    transition: none;
+  }
+
+  @media (max-width: 767px) {
+    .promoFoodWrap {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  .heroInner {
+    width: calc(100% - 60px);
+  }
+
+  .heroContent {
+    width: 50%;
+  }
+
+  .infoGrid {
+    gap: 13px;
+  }
+
+  .infoCard {
+    padding-inline: 12px;
+  }
+
+  .infoDetail {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   SMALL DESKTOP / TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .contactHero {
+    min-height: 500px;
+    background-position: 55% center;
+  }
+
+  .heroInner {
+    width: calc(100% - 50px);
+  }
+
+  .heroContent {
+    width: 54%;
+  }
+
+  .heroTitle {
+    font-size: clamp(53px, 7vw, 75px);
+  }
+
+  .formSection {
+    padding-bottom: 60px;
+  }
+
+  .formContainer {
+    max-width: 650px;
+  }
+
+  .contactInfoSection {
+    padding-bottom: 65px;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .infoCard {
+    min-height: 205px;
+    padding: 24px 18px;
+  }
+
+  .promoInner {
+    min-height: 270px;
+  }
+
+  .promoContent {
+    /* width: 60%; */
+    width: 50%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .contactHero {
+    margin-top: auto;
+    min-height: 590px;
+    align-items: flex-start;
+    /* background-position: 62% center; */
+    background-position: 40% center;
+    background-size: auto 100%;
+  }
+
+  /* Soft overlay protects text legibility while preserving
+     the original image and its food photography. */
+
+  .contactHero::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    /* background: linear-gradient(
+      90deg,
+      rgba(75, 174, 162, 0.94) 0%,
+      rgba(75, 174, 162, 0.84) 45%,
+      rgba(75, 174, 162, 0.18) 100%
+    ); */
+    pointer-events: none;
+  }
+
+  .heroInner {
+    width: calc(100% - 38px);
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .heroContent {
+    width: 100%;
+    max-width: 430px;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
+  .heroTitle {
+    max-width: 410px;
+    font-size: clamp(53px, 12vw, 78px);
+    line-height: 0.9;
+  }
+
+  .heroDescription {
+    max-width: 360px;
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .desktopBreak {
+    display: none;
+  }
+
+  .breadcrumb {
+    min-height: 39px;
+    gap: 7px;
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  .formSection {
+    padding: 0 16px 55px;
+  }
+
+  .formContainer {
+    max-width: 540px;
+  }
+
+  .formCard {
+    padding: 28px 22px;
+    border-radius: 12px;
+  }
+
+  .formTitle {
+    margin-bottom: 23px;
+    font-size: clamp(29px, 7vw, 38px);
+  }
+
+  .formFields {
+    gap: 13px;
+  }
+
+  .field input {
+    height: 46px;
+  }
+
+  .field textarea {
+    min-height: 105px;
+  }
+
+  .field input,
+  .field textarea,
+  .verificationRow input {
+    font-size: 13px;
+  }
+
+  .verificationRow {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .verificationRow input {
+    padding-inline: 10px;
+  }
+
+  .verificationHelp {
+    font-size: 11px;
+  }
+
+  .formDecoration {
+    top: 25px;
+    right: 28px;
+    transform: scale(0.7) rotate(-20deg);
+    transform-origin: top right;
+  }
+
+  .contactInfoSection {
+    padding: 5px 0 50px;
+  }
+
+  .infoHeading {
+    margin-bottom: 27px;
+  }
+
+  .infoEyebrow {
+    font-size: 13px;
+  }
+
+  .infoTitle {
+    max-width: 480px;
+    margin-inline: auto;
+    font-size: clamp(31px, 7.5vw, 45px);
+    line-height: 0.98;
+  }
+
+  .infoGrid {
+    gap: 12px;
+  }
+
+  .infoCard {
+    min-height: 195px;
+    padding: 21px 12px;
+    border-radius: 14px;
+  }
+
+  .infoIcon {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 15px;
+  }
+
+  .infoIcon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .infoCard h3 {
+    font-size: 12px;
+  }
+
+  .infoDetail {
+    font-size: 12px;
+  }
+
+  .infoDescription {
+    font-size: 11px;
+  }
+
+  .promoInner {
+    min-height: 275px;
+    padding-block: 50px;
+  }
+
+  .promoContent {
+    width: 72%;
+  }
+
+  .promoEyebrow {
+    font-size: 10px;
+  }
+
+  .promoTitle {
+    font-size: clamp(35px, 7.5vw, 49px);
+  }
+
+  .promoDescription {
+    font-size: 12px;
+  }
+
+  .doodleOne {
+    left: 0;
+    font-size: 42px;
+  }
+
+  .doodleTwo {
+    right: -4%;
+    font-size: 55px;
+  }
+
+  .doodleThree {
+    right: 6%;
+    font-size: 28px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .contactHero {
+    min-height: 530px;
+    background-position: 64% center;
+  }
+
+  .heroInner {
+    width: calc(100% - 32px);
+    padding-top: 62px;
+  }
+
+  .heroContent {
+    max-width: 350px;
+  }
+
+  .heroTitle {
+    font-size: clamp(48px, 12.5vw, 61px);
+  }
+
+  .heroDescription {
+    max-width: 290px;
+    font-size: 13px;
+  }
+
+  .formSection {
+    padding-inline: 13px;
+    padding-bottom: 45px;
+  }
+
+  .formCard {
+    padding: 24px 17px;
+  }
+
+  .sectionEyebrow {
+    font-size: 13px;
+  }
+
+  .formTitle {
+    max-width: 290px;
+    font-size: 30px;
+    line-height: 1.02;
+  }
+
+  .verificationRow {
+    grid-template-columns: 65px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .verificationRow input {
+    font-size: 11px;
+  }
+
+  .verificationCode {
+    font-size: 13px;
+  }
+
+  .submitButton {
+    min-height: 47px;
+    font-size: 12px;
+  }
+
+  .infoGrid {
+    gap: 10px;
+  }
+
+  .infoCard {
+    min-height: 185px;
+    padding: 18px 8px;
+    border-radius: 12px;
+  }
+
+  .infoIcon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 13px;
+  }
+
+  .infoCard h3 {
+    font-size: 11px;
+  }
+
+  .infoDetail {
+    font-size: 11px;
+  }
+
+  .infoDescription {
+    font-size: 10px;
+  }
+
+  .promoInner {
+    min-height: 245px;
+  }
+
+  .promoContent {
+    width: 82%;
+  }
+
+  .promoTitle {
+    font-size: clamp(33px, 8.5vw, 41px);
+  }
+
+  .promoDescription {
+    max-width: 265px;
+    font-size: 11px;
+  }
+
+  .promoButton {
+    min-height: 39px;
+    padding-inline: 13px;
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .contactHero {
+    min-height: 495px;
+  }
+
+  .heroInner {
+    width: calc(100% - 26px);
+    padding-top: 52px;
+  }
+
+  .heroTitle {
+    font-size: 46px;
+  }
+
+  .heroDescription {
+    max-width: 250px;
+  }
+
+  .formCard {
+    padding-inline: 14px;
+  }
+
+  .formTitle {
+    font-size: 27px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .infoCard {
+    min-height: 0;
+    padding: 22px 15px;
+  }
+
+  .infoIcon {
+    margin-bottom: 12px;
+  }
+
+  .infoDetail {
+    font-size: 12px;
+  }
+
+  .infoDescription {
+    font-size: 11px;
+  }
+
+  .promoContent {
+    width: 90%;
+  }
+
+  .promoTitle {
+    font-size: 32px;
+  }
+}
+
+/* =========================================================
+   LARGE / ULTRAWIDE SCREENS
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  .contactHero {
+    min-height: min(780px, 48vw);
+  }
+
+  .heroInner {
+    max-width: var(--rm-container-large);
+  }
+
+  .heroTitle {
+    font-size: clamp(90px, 5.3vw, 112px);
+  }
+
+  .formContainer {
+    max-width: 760px;
+  }
+
+  .contactInfoSection {
+    padding-bottom: 100px;
+  }
+
+  .infoGrid {
+    gap: 24px;
+  }
+
+  .infoCard {
+    min-height: 240px;
+    padding: 30px 22px;
+  }
+
+  .promoInner {
+    min-height: 350px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contactPage *,
+  .contactPage *::before,
+  .contactPage *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Clean, borderless contact form */
+.formCard {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  margin-top: 20px;
+}
+
+/* Field labels */
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-heading);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Underline-style inputs */
+.field input,
+.field textarea,
+.verificationRow input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+  border-radius: 0;
+  background: transparent;
+  color: var(--rm-dark);
+  box-shadow: none;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus animation */
+.field input:focus,
+.field textarea:focus,
+.verificationRow input:focus {
+  border-bottom: 2px solid var(--rm-green-dark);
+  box-shadow: none;
+  outline: none;
+}
+
+/* Comfortable spacing */
+.field input {
+  height: 42px;
+  padding: 8px 0;
+}
+
+.field textarea {
+  min-height: 90px;
+  padding: 10px 0;
+  resize: vertical;
+}
+
+.verificationRow input {
+  padding: 8px 0;
+}
+
+/* Keep the submit button unchanged */
+.submitButton {
+  border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .formCard {
+    padding: 25px 8px;
+  }
+
+  .field label {
+    font-size: 13px;
+  }
+
+  .field input {
+    height: 40px;
+  }
+}
+
+/* =========================================================
+   CONTACT FORM + RIGHT FOOD CARD
+   Rolls Mania — Modern Split Layout
+========================================================= */
+
+.formSection {
+  padding: 36px 20px 76px;
+  background: var(--rm-white);
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.formLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.75fr);
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+
+/* LEFT FORM CARD */
+
+.formLayout .formCard {
+  min-width: 0;
+  margin-top: 0;
+  padding: clamp(24px, 3vw, 42px);
+  border: 1px solid rgba(151, 83, 76, 0.06);
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 12px 42px rgba(32, 32, 32, 0.055);
+}
+
+.formLayout .sectionEyebrow {
+  margin-bottom: 9px;
+  color: var(--rm-green-dark);
+}
+
+.formLayout .formTitle {
+  margin-bottom: 28px;
+  max-width: 100%;
+  font-size: clamp(30px, 3vw, 43px);
+  line-height: 1.05;
+}
+
+/* Boxed fields matching the reference */
+
+.formLayout .field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #565656;
+  font-family: var(--rm-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.formLayout .field input,
+.formLayout .field textarea,
+.formLayout .verificationRow input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-body);
+  font-size: 14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.formLayout .field input {
+  height: 44px;
+  padding: 0 12px;
+}
+
+.formLayout .field textarea {
+  min-height: 115px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.formLayout .field input:focus,
+.formLayout .field textarea:focus,
+.formLayout .verificationRow input:focus {
+  outline: none;
+  border-color: var(--rm-green-dark);
+  box-shadow: 0 0 0 3px rgba(114, 185, 172, 0.15);
+}
+
+.formLayout .verificationRow {
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.formLayout .verificationRow input {
+  height: 44px;
+  padding: 0 12px;
+}
+
+.formLayout .verificationHelp {
+  margin: 9px 0 17px;
+  font-size: 11px;
+}
+
+.formLayout .submitButton {
+  min-height: 50px;
+  border-radius: 5px;
+}
+
+/* RIGHT FOOD PROMO CARD */
+
+.foodPromoCard {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 650px;
+  overflow: hidden;
+  padding: 42px 18px 0;
+  border: 1px solid rgba(151, 83, 76, 0.04);
+  border-radius: 17px;
+  background: linear-gradient(160deg, #fff3ed 0%, #ffebe2 58%, #fce2d7 100%);
+  box-shadow: 0 12px 42px rgba(32, 32, 32, 0.045);
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.foodPromoText {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  color: #781d20;
+  font-family: var(--rm-font-display);
+  font-size: clamp(25px, 2.4vw, 36px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.15;
+  transform: rotate(-5deg);
+}
+
+.foodPromoText span:last-child {
+  font-size: clamp(21px, 2vw, 31px);
+}
+
+/* Mint decorative strokes */
+
+.foodPromoDecor {
+  position: absolute;
+  z-index: 2;
+  top: 30%;
+  right: 12%;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  transform: rotate(20deg);
+  pointer-events: none;
+}
+
+.foodPromoDecor span {
+  display: block;
+  width: 11px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--rm-green-dark);
+}
+
+.foodPromoDecor span:nth-child(2) {
+  height: 56px;
+  margin-top: 14px;
+  background: var(--rm-green);
+}
+
+.foodPromoDecor span:nth-child(3) {
+  height: 36px;
+  margin-top: 28px;
+  background: var(--rm-rose);
+}
+
+/* Transparent food image */
+
+.foodPromoImage {
+  position: absolute;
+  z-index: 1;
+  right: -2%;
+  bottom: -3%;
+  display: block;
+  width: 104%;
+  max-width: none;
+  height: 77%;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 15px rgba(80, 43, 26, 0.09));
+  will-change: transform, opacity;
+}
+
+/* Keep the form decoration from interfering with this layout */
+
+.formSection > .formDecoration {
+  pointer-events: none;
+}
+
+/* TABLET */
+
+@media (max-width: 991px) {
+  .formSection {
+    padding: 30px 18px 60px;
+  }
+
+  .formContainer {
+    max-width: 850px;
+  }
+
+  .formLayout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(245px, 0.8fr);
+    gap: 18px;
+  }
+
+  .formLayout .formCard {
+    padding: 28px 22px;
+  }
+
+  .foodPromoCard {
+    min-height: 600px;
+    padding-top: 34px;
+  }
+
+  .foodPromoImage {
+    width: 112%;
+    height: 73%;
+  }
+
+  .foodPromoText {
+    font-size: clamp(24px, 3vw, 30px);
+  }
+
+  .foodPromoText span:last-child {
+    font-size: clamp(19px, 2.5vw, 25px);
+  }
+}
+
+/* MOBILE: FORM FIRST, FOOD CARD BELOW */
+
+@media (max-width: 767px) {
+  .formSection {
+    padding: 22px 16px 48px;
+  }
+
+  .formContainer {
+    max-width: 540px;
+  }
+
+  .formLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .formLayout .formCard {
+    padding: 27px 20px;
+    border-radius: 14px;
+  }
+
+  .formLayout .formTitle {
+    margin-bottom: 23px;
+    font-size: clamp(28px, 7vw, 37px);
+  }
+
+  .formLayout .field input {
+    height: 44px;
+  }
+
+  .formLayout .field textarea {
+    min-height: 105px;
+  }
+
+  .formLayout .verificationRow {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .formLayout .verificationRow input {
+    padding-inline: 9px;
+    font-size: 12px;
+  }
+
+  .foodPromoCard {
+    min-height: 480px;
+    padding: 35px 14px 0;
+    border-radius: 14px;
+  }
+
+  .foodPromoText {
+    font-size: clamp(27px, 7vw, 36px);
+  }
+
+  .foodPromoText span:last-child {
+    font-size: clamp(23px, 6vw, 31px);
+  }
+
+  .foodPromoImage {
+    right: 0;
+    bottom: -4%;
+    width: min(100%, 410px);
+    height: 78%;
+  }
+
+  .foodPromoDecor {
+    top: 27%;
+    right: 14%;
+    transform: scale(0.85) rotate(20deg);
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .formSection {
+    padding-inline: 12px;
+  }
+
+  .formLayout .formCard {
+    padding: 24px 15px;
+  }
+
+  .formLayout .formTitle {
+    font-size: 27px;
+  }
+
+  .foodPromoCard {
+    min-height: 430px;
+    padding-top: 30px;
+  }
+
+  .foodPromoImage {
+    height: 76%;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .contactFoodCard,
+  .contactFoodImage {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================
+   CONTACT FORM — MINIMAL UNDERLINE DESIGN
+========================================= */
+
+/* Remove the outer form card appearance */
+.formLayout .formCard {
+  padding: clamp(25px, 3vw, 42px);
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Space between form fields */
+.formLayout .formFields {
+  gap: 22px;
+}
+
+/* Field labels with a decorative line before each name */
+.formLayout .field label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.formLayout .field label::before {
+  content: "";
+  display: inline-block;
+  flex: 0 0 23px;
+  width: 23px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--rm-green-dark);
+}
+
+/* Remove input boxes and use only a bottom line */
+.formLayout .field input,
+.formLayout .field textarea {
+  display: block;
+  width: 100%;
+  padding: 11px 0;
+  border: none !important;
+  border-bottom: 1px solid #dedede !important;
+  border-radius: 0 !important;
+  outline: none;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-body);
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.formLayout .field input {
+  height: 44px;
+}
+
+.formLayout .field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Highlight the underline on focus */
+.formLayout .field input:focus,
+.formLayout .field textarea:focus {
+  border-bottom: 2px solid var(--rm-green-dark) !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder styling */
+.formLayout .field input::placeholder,
+.formLayout .field textarea::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* Keep the verification field functional and readable */
+.formLayout .verificationRow input {
+  border: none !important;
+  border-bottom: 1px solid #dedede !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.formLayout .verificationRow input:focus {
+  border-bottom: 2px solid var(--rm-green-dark) !important;
+}
+
+/* Preserve the submit button design */
+.formLayout .submitButton {
+  border-radius: 5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .formLayout .formCard {
+    padding: 25px 8px;
+  }
+
+  .formLayout .formFields {
+    gap: 19px;
+  }
+
+  .formLayout .field label {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .formLayout .field label::before {
+    flex-basis: 19px;
+    width: 19px;
+  }
+}

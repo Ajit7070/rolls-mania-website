@@ -1,0 +1,705 @@
+/* =========================================
+   ROLLS MANIA HERO
+   ========================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+
+  background: var(--rm-white);
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(151, 83, 76, 0.22);
+}
+
+/* =========================================
+   HERO INNER
+   ========================================= */
+
+.heroInner {
+  position: relative;
+
+  min-height: 645px;
+
+  display: grid;
+
+  grid-template-columns:
+    410px
+    minmax(450px, 1fr)
+    205px;
+
+  align-items: center;
+
+  column-gap: 25px;
+
+  padding: 0;
+}
+
+/* =========================================
+   LEFT CONTENT
+   ========================================= */
+
+.content {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+}
+
+/* =========================================
+   EYEBROW
+   LATO HEAVY
+   ========================================= */
+
+.eyebrow {
+  width: max-content;
+
+  margin: 0 0 8px;
+
+  color: #9b7471;
+
+  font-family: "Lato-Heavy", sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: 0.01em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   MAIN HERO TITLE
+   PASSION ONE BOLD
+   ========================================= */
+
+.title {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 0;
+
+  width: max-content;
+
+  margin: 0;
+
+  color: var(--rm-green);
+
+  font-family: "PassionOne-Bold", sans-serif;
+
+  font-size: clamp(4.5rem, 5.25vw, 5.65rem);
+
+  font-weight: 700;
+
+  line-height: 0.78;
+
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+}
+
+.title span {
+  display: block;
+
+  width: max-content;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   BUTTONS
+   POPPINS
+   ========================================= */
+
+.actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 42px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 42px;
+
+  padding: 0 17px;
+
+  border-radius: 3px;
+
+  /* =====================================
+     POPPINS
+     ===================================== */
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* =========================================
+   PRIMARY BUTTON
+   ========================================= */
+
+.primaryButton {
+  min-width: 176px;
+
+  background: #c9aaa3;
+
+  color: #ffffff;
+}
+
+.primaryButton svg {
+  width: 15px;
+  height: 15px;
+
+  stroke-width: 1.7;
+}
+
+.primaryButton:hover {
+  background: #b9968f;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(151, 83, 76, 0.16);
+}
+
+/* =========================================
+   SECONDARY BUTTON
+   ========================================= */
+
+.secondaryButton {
+  min-width: 205px;
+
+  background: #f2ebe8;
+
+  color: #403b3a;
+}
+
+.secondaryButton svg {
+  width: 17px;
+  height: 17px;
+
+  stroke-width: 2;
+}
+
+.secondaryButton:hover {
+  background: #e9dfdb;
+
+  color: #403b3a;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(100, 80, 75, 0.1);
+}
+
+/* =========================================
+   CENTER VISUAL
+   ========================================= */
+
+.visual {
+  position: relative;
+
+  width: 100%;
+
+  height: 645px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: visible;
+
+  perspective: 1000px;
+}
+
+/* =========================================
+   COMPLETE HERO IMAGE
+   ========================================= */
+
+.heroVisualImage {
+  position: relative;
+
+  z-index: 3;
+
+  display: block;
+
+  width: 450px;
+
+  max-width: none;
+
+  height: auto;
+
+  object-fit: contain;
+
+  transform: translateY(8px);
+
+  will-change: transform;
+
+  pointer-events: auto;
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+
+  transition: filter 0.35s ease;
+}
+
+.heroVisualImage:hover {
+  filter: drop-shadow(0 18px 25px rgba(80, 60, 55, 0.1));
+}
+
+/* =========================================
+   RIGHT SERVICES
+   ========================================= */
+
+.highlights {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 29px;
+}
+
+.highlight {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+/* =========================================
+   SERVICE ICON
+   ========================================= */
+
+.icon {
+  flex: 0 0 40px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1px;
+
+  border-radius: 50%;
+
+  background: #dceae7;
+
+  color: #50645f;
+
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.highlight:hover .icon {
+  transform: translateY(-3px) rotate(-4deg);
+
+  background: #cce3df;
+}
+
+.icon svg {
+  width: 19px;
+  height: 19px;
+
+  stroke-width: 1.8;
+}
+
+/* =========================================
+   SERVICE TITLE
+   LATO HEAVY
+   ========================================= */
+
+.highlight h2 {
+  margin: 0 0 4px;
+
+  color: #9b7775;
+
+  font-family: "Lato-Heavy", sans-serif;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: 0;
+}
+
+/* =========================================
+   SERVICE DESCRIPTION
+   ROBOTO
+   ========================================= */
+
+.highlight p {
+  width: 125px;
+  max-width: 125px;
+
+  margin: 0;
+
+  color: #343434;
+
+  font-family: var(--font-roboto), sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  line-height: 1.35;
+
+  text-align: left;
+}
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1400px) {
+  .heroInner {
+    grid-template-columns:
+      420px
+      minmax(480px, 1fr)
+      210px;
+
+    column-gap: 28px;
+
+    min-height: 645px;
+  }
+
+  .title {
+    font-size: 5.65rem;
+  }
+
+  .visual {
+    height: 645px;
+  }
+
+  .heroVisualImage {
+    width: 460px;
+
+    transform: translateY(8px);
+  }
+
+  .highlight h2 {
+    font-size: 19px;
+  }
+}
+
+/* =========================================
+   TABLET / SMALL DESKTOP
+   ========================================= */
+
+@media (max-width: 1199px) {
+  .heroInner {
+    /* grid-template-columns:
+      350px
+      minmax(390px, 1fr)
+      175px; */
+    grid-template-columns:
+      366px
+      minmax(390px, 1fr)
+      175px;
+    column-gap: 15px;
+
+    min-height: 600px;
+  }
+
+  .eyebrow {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: clamp(4rem, 6vw, 5rem);
+  }
+
+  .visual {
+    height: 600px;
+  }
+
+  .heroVisualImage {
+    /* width: 410px; */
+    width: 358px;
+  }
+
+  .highlight h2 {
+    font-size: 16px;
+  }
+
+  .highlight p {
+    font-size: 10px;
+  }
+
+  .icon {
+    flex-basis: 35px;
+
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 991px) {
+  .heroInner {
+    grid-template-columns: 0.9fr 1.1fr;
+
+    min-height: 600px;
+
+    column-gap: 15px;
+  }
+
+  .title {
+    font-size: clamp(3.7rem, 7vw, 4.8rem);
+  }
+
+  .visual {
+    height: 550px;
+  }
+
+  .heroVisualImage {
+    width: 400px;
+  }
+
+  .highlights {
+    grid-column: 1 / -1;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    padding: 10px 0 25px;
+  }
+
+  .highlight {
+    width: auto;
+
+    max-width: 190px;
+  }
+}
+
+/* =========================================
+   TABLET IMAGE FIX
+   768px - 991px
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .heroVisualImage {
+    width: 340px;
+    max-width: 100%;
+  }
+
+  .visual {
+    width: 100%;
+    overflow: visible;
+  }
+}
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+  .heroInner {
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: auto;
+
+    padding: 48px 0 55px;
+
+    text-align: center;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .eyebrow {
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    font-weight: 900;
+  }
+
+  .title {
+    width: 100%;
+
+    align-items: center;
+
+    font-size: clamp(3.5rem, 14vw, 5rem);
+
+    line-height: 0.8;
+  }
+
+  .title span {
+    width: auto;
+  }
+
+  .actions {
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+  }
+
+  /* IMAGE */
+
+  .visual {
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    margin-top: 25px;
+
+    overflow: visible;
+  }
+
+  .heroVisualImage {
+    width: min(88vw, 390px);
+
+    max-width: 100%;
+
+    transform: translateY(0);
+  }
+
+  /* SERVICES */
+
+  /* =========================================
+   SERVICES - MOBILE
+   CENTERED ONE COLUMN
+   ========================================= */
+
+  .highlights {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 24px;
+
+    padding-top: 50px;
+  }
+
+  .highlight {
+    width: 100%;
+    max-width: 315px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 auto;
+    padding-left: 60px;
+    text-align: left;
+    /* IMPORTANT:
+     Center the actual icon + text content */
+    justify-content: center;
+  }
+
+  .highlight h2 {
+    font-size: 15px;
+  }
+
+  .highlight p {
+    width: 220px;
+    max-width: 220px;
+
+    margin: 0;
+
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+  .heroInner {
+    padding-top: 40px;
+  }
+
+  .title {
+    font-size: 3.25rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    height: 38px;
+
+    min-width: auto;
+
+    padding: 0 13px;
+
+    font-size: 10px;
+  }
+
+  .heroVisualImage {
+    /* width: 92vw; */
+    width: 86vw;
+  }
+}

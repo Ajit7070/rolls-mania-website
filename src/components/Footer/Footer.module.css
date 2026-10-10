@@ -1,0 +1,649 @@
+/* =========================================================
+   ROLLS MANIA FOOTER
+   ========================================================= */
+
+.footer {
+  position: relative;
+  width: 100%;
+  min-height: 335px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  /* width: 100%;
+  height: 150%;
+  left: 50px;
+  margin-top: -80px; */
+  height: 150%;
+  margin-top: -72px;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================================================
+   MAIN INNER
+   ========================================================= */
+
+.inner {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding-top: 105px;
+  padding-bottom: 25px;
+}
+
+/* =========================================================
+   TOP CONTENT
+   ========================================================= */
+
+.topContent {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.logo {
+  display: block;
+  width: 145px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================================================
+   CENTER CTA
+   ========================================================= */
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ctaSmall {
+  margin: 0 0 3px;
+
+  color: #262626;
+
+  /* SAME FONT AS HEADER */
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.ctaTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+
+  margin: 0;
+
+  color: #262626;
+
+  /* SAME FONT AS HEADER */
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+.ctaTitle span {
+  display: block;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   ORDER BUTTON
+   ========================================================= */
+
+.orderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.orderButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  min-width: 140px;
+  height: 38px;
+
+  padding: 0 14px;
+
+  color: #383838;
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  /* SAME FONT AS HEADER */
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.orderButton:hover {
+  color: #383838;
+  transform: translateY(-2px);
+
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+.buttonArrow {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 10px;
+  height: 12px;
+}
+
+.buttonArrow span {
+  position: relative;
+
+  display: block;
+
+  width: 7px;
+  height: 7px;
+
+  border-top: 1.5px solid #555;
+  border-right: 1.5px solid #555;
+
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   FOOTER NAVIGATION
+   ========================================================= */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  /* slightly more space before navigation */
+  margin-top: 38px;
+}
+
+.navItem {
+  position: relative;
+
+  color: #2c2c2c;
+
+  /* SAME FONT AS HEADER */
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.navItem:hover {
+  color: var(--rm-dark-rose);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.divider {
+  width: calc(100% + 10px);
+  margin-left: -5px;
+
+  height: 2px;
+  min-height: 2px;
+  max-height: 2px;
+
+  margin-top: 25px;
+
+  background: rgba(38, 38, 38, 0.65);
+
+  box-sizing: border-box;
+  flex: none;
+}
+
+/* =========================================================
+   BOTTOM LINKS
+   ========================================================= */
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 75px;
+
+  margin-top: 13px;
+}
+
+.bottomLinks a {
+  color: #3d3d3d;
+
+  /* SAME FONT AS HEADER */
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.bottomLinks a:hover {
+  color: var(--rm-dark-rose);
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
+  .footer {
+    min-height: 350px;
+  }
+
+  .inner {
+    padding-top: 105px;
+    padding-bottom: 27px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .ctaSmall {
+    font-size: 19px;
+  }
+
+  .ctaTitle {
+    font-size: 28px;
+  }
+
+  .orderButton {
+    min-width: 145px;
+    height: 39px;
+    font-size: 13px;
+  }
+
+  .navigation {
+    margin-top: 39px;
+  }
+
+  .navItem {
+    font-size: 14px;
+  }
+
+  .divider {
+    margin-top: 25px;
+  }
+
+  .bottomLinks {
+    margin-top: 13px;
+  }
+
+  .bottomLinks a {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  .footer {
+    min-height: 325px;
+  }
+
+  .inner {
+    /* padding-top: 53px; */
+    padding-top: 70px;
+    padding-bottom: 24px;
+  }
+
+  .logo {
+    width: 130px;
+  }
+
+  .ctaSmall {
+    font-size: 16px;
+  }
+
+  .ctaTitle {
+    font-size: 23px;
+  }
+
+  .orderButton {
+    min-width: 135px;
+    height: 37px;
+    font-size: 12px;
+  }
+
+  .navigation {
+    margin-top: 34px;
+  }
+
+  .navItem {
+    font-size: 13px;
+  }
+
+  .divider {
+    /* margin-top: 16px; */
+    margin-top: 30px;
+  }
+
+  .bottomLinks {
+    margin-top: 16px;
+  }
+
+  .bottomLinks a {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .footer {
+    min-height: 310px;
+  }
+
+  .inner {
+    /* padding-top: 50px; */
+    padding-top: 70px;
+    padding-bottom: 22px;
+  }
+
+  .logo {
+    width: 125px;
+  }
+
+  .ctaSmall {
+    font-size: 15px;
+  }
+
+  .ctaTitle {
+    font-size: 21px;
+  }
+
+  .orderButton {
+    min-width: 125px;
+    height: 36px;
+    font-size: 11px;
+  }
+
+  .navigation {
+    margin-top: 31px;
+  }
+
+  .navItem {
+    font-size: 12px;
+  }
+
+  .divider {
+    /* margin-top: 15px; */
+    margin-top: 30px;
+  }
+
+  .bottomLinks {
+    gap: 55px;
+    margin-top: 15px;
+  }
+
+  .bottomLinks a {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .footer {
+    min-height: auto;
+  }
+
+  .inner {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+
+  .topContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .logoWrapper {
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .logo {
+    width: 135px;
+  }
+
+  .cta {
+    width: 100%;
+    margin-bottom: 22px;
+  }
+
+  .ctaSmall {
+    font-size: 16px;
+  }
+
+  .ctaTitle {
+    font-size: 23px;
+  }
+
+  .orderWrapper {
+    justify-content: center;
+  }
+
+  .orderButton {
+    min-width: 140px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px 10px;
+
+    margin-top: 35px;
+
+    text-align: center;
+  }
+
+  .navItem {
+    font-size: 12px;
+  }
+
+  .divider {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 18px;
+  }
+
+  .bottomLinks {
+    gap: 40px;
+    margin-top: 17px;
+  }
+
+  .bottomLinks a {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .inner {
+    padding-top: 43px;
+    padding-bottom: 22px;
+  }
+
+  .logoWrapper {
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    width: 125px;
+  }
+
+  .cta {
+    margin-bottom: 20px;
+  }
+
+  .ctaSmall {
+    font-size: 14px;
+  }
+
+  .ctaTitle {
+    font-size: 20px;
+  }
+
+  .orderButton {
+    min-width: 130px;
+    height: 36px;
+    font-size: 11px;
+  }
+
+  .navigation {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px 7px;
+    margin-top: 31px;
+  }
+
+  .navItem {
+    font-size: 11px;
+  }
+
+  .divider {
+    margin-top: 17px;
+  }
+
+  .bottomLinks {
+    gap: 28px;
+    margin-top: 16px;
+  }
+
+  .bottomLinks a {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .inner {
+    padding-top: 40px;
+  }
+
+  .logo {
+    width: 115px;
+  }
+
+  .ctaSmall {
+    font-size: 13px;
+  }
+
+  .ctaTitle {
+    font-size: 18px;
+  }
+
+  .navigation {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px 8px;
+  }
+
+  .navItem {
+    font-size: 11px;
+  }
+
+  .bottomLinks {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .orderButton,
+  .navItem,
+  .bottomLinks a {
+    transition: none;
+  }
+}

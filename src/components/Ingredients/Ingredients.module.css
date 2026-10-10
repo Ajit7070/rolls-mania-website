@@ -1,0 +1,761 @@
+/* =========================================
+   ROLLS MANIA
+   INGREDIENTS SECTION
+   ========================================= */
+
+.ingredients {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: visible;
+  isolation: auto;
+}
+/* =========================================
+   EXACT BACKGROUND
+   ========================================= */
+
+.background {
+  /* position: absolute; */
+
+  /* Keep background behind all section content */
+  z-index: 0;
+
+  /*
+    Move the background upward.
+    This makes the top rough edge match
+    the reference much more closely.
+  */
+  top: -70px;
+  bottom: 0;
+
+  left: -4vw;
+  right: -4vw;
+
+  width: auto;
+  /* height: auto; */
+  height: 70px;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+
+  object-fit: fill;
+  object-position: center center;
+
+  pointer-events: none;
+  user-select: none;
+}
+/* =========================================
+   INNER
+   ========================================= */
+.inner {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  min-height: 500px;
+}
+/* =========================================
+   BRAND ICON
+   TOP CENTER
+   ========================================= */
+.brandIcon {
+  position: absolute;
+
+  z-index: 50;
+
+  /*
+    Logo overlaps the top edge exactly like
+    the reference design.
+  */
+  /* top: -42px; */
+  top: -65px;
+
+  left: 50%;
+
+  width: 115px;
+  height: 85px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  will-change: transform;
+}
+
+.brandIconImage {
+  position: relative;
+
+  z-index: 50;
+
+  display: block;
+
+  width: 100%;
+  /* height: auto; */
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   LEFT CONTENT
+   ========================================= */
+
+.leftContent {
+  position: absolute;
+
+  z-index: 4;
+
+  top: 75px;
+
+  left: 0;
+
+  width: 430px;
+}
+
+/* =========================================
+   SECTION LABEL
+   LATO HEAVY
+   ========================================= */
+
+.label {
+  margin: 0 0 12px;
+
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-heading);
+
+  font-size: 19px;
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: 0.015em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   MAIN TITLE
+   PASSION ONE
+   ========================================= */
+
+.title {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 0;
+
+  margin: 0;
+
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-display);
+
+  font-size: clamp(3.2rem, 4.3vw, 4.7rem);
+
+  font-weight: 700;
+
+  line-height: 0.8;
+
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+}
+
+.title span {
+  display: block;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   CENTER FOOD
+   ========================================= */
+.food {
+  position: absolute;
+
+  z-index: 10;
+
+  top: 105px;
+
+  left: 50%;
+
+  width: 475px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  will-change: transform;
+}
+
+.foodImage {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 14px 18px rgba(40, 20, 20, 0.12));
+}
+
+/* =========================================
+   RIGHT CONTENT
+   ========================================= */
+
+.info {
+  position: absolute;
+
+  z-index: 5;
+
+  top: 118px;
+
+  right: 0;
+
+  width: 315px;
+
+  color: var(--rm-white);
+}
+
+/* =========================================
+   INFO TITLE
+   LATO HEAVY
+   ========================================= */
+
+.info h3 {
+  margin: 0 0 5px;
+
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-heading);
+
+  font-size: 27px;
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: 0;
+}
+
+/* =========================================
+   INFO DESCRIPTION
+   ROBOTO
+   ========================================= */
+
+.info p {
+  margin: 0;
+
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-body);
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  line-height: 1.35;
+}
+
+/* =========================================
+   DOWN ARROW
+   ========================================= */
+.arrow {
+  position: relative;
+
+  width: 30px;
+  height: 22px;
+
+  margin-top: 20px;
+  margin-left: 120px;
+
+  display: block;
+}
+
+.arrow span {
+  position: absolute;
+
+  top: 5px;
+
+  width: 18px;
+  height: 2px;
+
+  background: var(--rm-white);
+
+  border-radius: 999px;
+
+  transform-origin: center;
+}
+
+.arrow span:first-child {
+  left: 0;
+
+  transform: rotate(45deg);
+}
+
+.arrow span:last-child {
+  right: 0;
+
+  transform: rotate(-45deg);
+}
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+@media (min-width: 1400px) {
+  .ingredients {
+    min-height: 500px;
+  }
+
+  .inner {
+    min-height: 500px;
+  }
+
+  .background {
+    top: -75px;
+    bottom: 0;
+  }
+
+  .brandIcon {
+    top: -80px;
+    width: 125px;
+    height: 150px;
+    z-index: 50;
+  }
+
+  .leftContent {
+    top: 65px;
+    width: 450px;
+    z-index: 4;
+  }
+
+  .label {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 4.8rem;
+  }
+
+  .food {
+    top: 105px;
+    width: 490px;
+    z-index: 10;
+  }
+
+  .info {
+    top: 125px;
+    width: 325px;
+    z-index: 20;
+  }
+
+  .info h3 {
+    font-size: 28px;
+  }
+
+  .info p {
+    font-size: 15px;
+  }
+}
+
+/* =========================================
+   TABLET / SMALL DESKTOP
+   ========================================= */
+
+@media (max-width: 1199px) {
+  .ingredients,
+  .inner {
+    min-height: 390px;
+  }
+
+  .background {
+    top: -50px;
+    bottom: 0;
+  }
+
+  .brandIcon {
+    top: -35px;
+    /* width: 105px; */
+    width: 136px;
+    z-index: 50;
+  }
+
+  .leftContent {
+    top: 55px;
+    width: 370px;
+  }
+
+  .label {
+    font-size: 17px;
+    margin-bottom: 9px;
+  }
+
+  .title {
+    font-size: clamp(2.9rem, 5vw, 4rem);
+  }
+
+  .food {
+    top: 100px;
+    /* width: 455px; */
+    width: 340px;
+  }
+
+  .info {
+    top: 112px;
+    width: 265px;
+  }
+
+  .info h3 {
+    font-size: 22px;
+  }
+
+  .info p {
+    font-size: 12px;
+  }
+
+  .arrow {
+    margin-top: 16px;
+    margin-left: 100px;
+  }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 991px) {
+  .ingredients,
+  .inner {
+    min-height: 345px;
+  }
+
+  .brandIcon {
+    top: -32px;
+    width: 140px;
+    /* width: 90px; */
+  }
+
+  .leftContent {
+    top: 48px;
+
+    width: 310px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 5.5vw, 3.4rem);
+  }
+
+  .food {
+    top: 112px;
+
+    left: 49%;
+    width: 250px;
+    /* width: 405px; */
+  }
+
+  .info {
+    top: 105px;
+
+    right: 0;
+    width: 210px;
+    /* width: 220px; */
+  }
+
+  .info h3 {
+    font-size: 19px;
+  }
+
+  .info p {
+    font-size: 11px;
+  }
+
+  .desktopBreak {
+    display: none;
+  }
+
+  .arrow {
+    margin-left: 80px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+  .ingredients {
+    min-height: 620px;
+  }
+
+  .backgroundImage {
+    object-fit: cover;
+
+    object-position: center center;
+  }
+
+  .inner {
+    min-height: 620px;
+  }
+
+  /* ICON */
+
+  .brandIcon {
+    top: -25px;
+
+    width: 82px;
+  }
+
+  /* LEFT CONTENT */
+
+  .leftContent {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+
+    /* padding-top: 55px; */
+    padding-top: 76px;
+    text-align: center;
+  }
+
+  .label {
+    margin-bottom: 8px;
+
+    font-size: 15px;
+  }
+
+  .title {
+    align-items: center;
+
+    font-size: clamp(2.8rem, 12vw, 4rem);
+
+    line-height: 0.82;
+  }
+
+  .title span {
+    white-space: normal;
+  }
+
+  /* FOOD */
+
+  /* .food {
+    position: absolute;
+
+    top: 225px;
+
+    left: 50%;
+
+    width: min(105vw, 430px);
+  } */
+
+  .food {
+    position: absolute;
+
+    /* top: 125px; */
+    top: 174px;
+    left: 50%;
+
+    width: min(105vw, 260px);
+  }
+
+  /* INFO */
+
+  .info {
+    position: absolute;
+
+    top: auto;
+
+    right: auto;
+
+    bottom: 42px;
+
+    left: 50%;
+
+    width: 100%;
+
+    max-width: 340px;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+  }
+
+  .info h3 {
+    font-size: 21px;
+  }
+
+  .info p {
+    font-size: 12px;
+
+    line-height: 1.45;
+  }
+
+  .arrow {
+    margin: 16px auto 0;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+  .ingredients {
+    min-height: 570px;
+  }
+
+  .inner {
+    min-height: 570px;
+  }
+
+  .brandIcon {
+    top: -22px;
+    /* width: 72px; */
+    width: 90px;
+  }
+
+  .leftContent {
+    /* padding-top: 50px; */
+    padding-top: 76px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 2.65rem;
+  }
+
+  /* .food {
+    top: 210px;
+    width: 108vw;
+  } */
+  .food {
+    top: 185px;
+    width: 50vw;
+  }
+
+  .info {
+    /* bottom: 30px; */
+    bottom: 64px;
+  }
+
+  .info h3 {
+    font-size: 19px;
+  }
+
+  .info p {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .food,
+  .brandIcon {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* =========================================
+   SECTION SPACING
+   ========================================= */
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .ingredients {
+    /*
+      Extra breathing room around the
+      Ingredients section without changing
+      the actual background proportions.
+    */
+    margin-top: 45px;
+    margin-bottom: 30px;
+  }
+}
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1600px) {
+  .ingredients {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .ingredients {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+  .ingredients {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+/* =========================================
+   MOBILE INGREDIENTS BACKGROUND
+   NEW BACKGROUND ONLY FOR MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+  .ingredients {
+    position: relative;
+    overflow: hidden;
+
+    background-image: url("/assets/rolls-mania/ingredients/ingredients-bg2.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+  }
+
+  /* Hide the existing desktop background ONLY on mobile */
+  .background {
+    display: none;
+  }
+}

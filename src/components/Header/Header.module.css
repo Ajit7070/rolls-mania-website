@@ -1,0 +1,429 @@
+/* =========================================
+   ROLLS MANIA HEADER
+   ========================================= */
+
+.header {
+  position: relative;
+  z-index: var(--rm-z-header);
+
+  width: 100%;
+
+  background: var(--rm-white);
+
+  border-bottom: 1px solid rgba(151, 83, 76, 0.18);
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+  min-height: 104px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.logoImage {
+  /* width: 310px; */
+  width: 200px;
+  height: auto;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.015);
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+   POPPINS
+   ========================================= */
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  margin-left: auto;
+}
+
+.navLink {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 0;
+
+  color: #272727;
+
+  /* =====================================
+     POPPINS
+     ===================================== */
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.navLink::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 2px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--rm-dark-rose);
+
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--rm-dark-rose);
+
+  transform: translateY(-1px);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   OPEN YOUR RM
+   POPPINS
+   ========================================= */
+
+.rmButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 158px;
+  height: 40px;
+
+  padding: 0 20px;
+
+  border-radius: 2px;
+
+  background: var(--rm-green);
+
+  color: #ffffff;
+
+  /* =====================================
+     POPPINS
+     ===================================== */
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  letter-spacing: 0;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rmButton:hover {
+  background: var(--rm-green-dark);
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 18px rgba(114, 185, 172, 0.2);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+   POPPINS
+   ========================================= */
+
+.menuButton {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--rm-dark);
+
+  cursor: pointer;
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 25px;
+}
+
+/* =========================================
+   MOBILE NAV
+   ========================================= */
+
+.mobileNav {
+  display: none;
+}
+
+/* =========================================
+   TABLET / SMALL DESKTOP
+   768px - 1199px
+
+   KEEP SAME DESKTOP DESIGN
+   JUST SCALE TO FIT
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .navbar {
+    min-height: 90px;
+
+    gap: 24px;
+  }
+
+  .logoImage {
+    /* width: 245px; */
+    width: 185px;
+  }
+
+  .desktopNav {
+    gap: 18px;
+  }
+
+  .navLink {
+    font-size: 11px;
+  }
+
+  .rmButton {
+    min-width: 140px;
+
+    height: 36px;
+
+    padding: 0 16px;
+
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   SMALL TABLET
+   768px - 899px
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .navbar {
+    gap: 16px;
+  }
+
+  .logoImage {
+    width: 205px;
+  }
+
+  .desktopNav {
+    gap: 12px;
+  }
+
+  .navLink {
+    font-size: 10px;
+  }
+
+  .rmButton {
+    min-width: 125px;
+
+    height: 34px;
+
+    padding: 0 12px;
+
+    font-size: 9px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   BELOW 768px
+   ========================================= */
+
+@media (max-width: 767px) {
+  .navbar {
+    min-height: 68px;
+
+    gap: 15px;
+  }
+
+  .logoImage {
+    width: 175px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .mobileNav {
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition: grid-template-rows 0.35s ease, opacity 0.25s ease;
+  }
+
+  .mobileNav > nav {
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    overflow: hidden;
+  }
+
+  .mobileNavOpen {
+    grid-template-rows: 1fr;
+
+    opacity: 1;
+
+    padding-bottom: 18px;
+  }
+
+  /* =====================================
+     MOBILE NAV LINKS
+     ===================================== */
+
+  .mobileNavLink {
+    display: block;
+
+    padding: 14px 5px;
+
+    border-bottom: 1px solid rgba(151, 83, 76, 0.12);
+
+    color: #444444;
+
+    font-family: var(--font-poppins), sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    letter-spacing: 0;
+
+    text-transform: uppercase;
+  }
+
+  /* =====================================
+     MOBILE OPEN YOUR RM
+     ===================================== */
+
+  .mobileRmButton {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 15px;
+
+    padding: 12px 18px;
+
+    border-radius: 3px;
+
+    background: var(--rm-green);
+
+    color: #ffffff;
+
+    font-family: var(--font-poppins), sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    letter-spacing: 0;
+
+    text-transform: uppercase;
+  }
+
+  .mobileRmButton svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 400px) {
+  .navbar {
+    min-height: 64px;
+  }
+
+  .logoImage {
+    width: 155px;
+  }
+
+  .menuButton {
+    width: 40px;
+    height: 40px;
+
+    font-size: 24px;
+  }
+}

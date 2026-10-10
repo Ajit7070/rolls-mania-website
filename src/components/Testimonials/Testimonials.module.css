@@ -1,0 +1,604 @@
+/* =========================================================
+   ROLLS MANIA
+   TESTIMONIALS SECTION
+   ========================================================= */
+
+.testimonials {
+  position: relative;
+  width: 100%;
+
+  background: #ffffff;
+
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* =========================================================
+   INNER
+   ========================================================= */
+
+.inner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  padding-top: 42px;
+  padding-bottom: 55px;
+}
+
+/* =========================================================
+   THREE COLUMN GRID
+   ========================================================= */
+
+.grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  align-items: start;
+
+  justify-items: center;
+
+  column-gap: 35px;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.card {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+/* =========================================================
+   IMAGE WRAPPER
+   ========================================================= */
+
+.imageWrapper {
+  position: relative;
+
+  width: 285px;
+  height: 285px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   TESTIMONIAL IMAGE
+   ========================================================= */
+
+.testimonialImage {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================================================
+   PLAY BUTTON
+   ========================================================= */
+
+.playButton {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 5;
+
+  width: 72px;
+  height: 72px;
+
+  padding: 0;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.playButton:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+
+  filter: brightness(1.08);
+}
+
+.playButton:focus-visible {
+  outline: 3px solid #e40018;
+
+  outline-offset: 5px;
+
+  border-radius: 50%;
+}
+
+/* =========================================================
+   OUTER RED CIRCLE
+   ========================================================= */
+
+.playOuter {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(229, 0, 24, 0.45);
+
+  box-shadow: 0 0 0 7px rgba(229, 0, 24, 0.12), 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   INNER RED CIRCLE
+   ========================================================= */
+
+.playInner {
+  width: 49px;
+  height: 49px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e40018;
+}
+
+/* =========================================================
+   PLAY TRIANGLE
+   ========================================================= */
+
+.playTriangle {
+  width: 0;
+  height: 0;
+
+  margin-left: 3px;
+
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid #ffffff;
+}
+
+/* =========================================================
+   NAME
+   ========================================================= */
+
+.name {
+  margin: 13px 0 0;
+
+  color: #bf6d75;
+
+  font-family: var(--rm-font-heading);
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  letter-spacing: 0.01em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   STARS
+   ========================================================= */
+
+.stars {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
+
+  margin-top: 8px;
+}
+
+.star {
+  position: relative;
+
+  display: inline-block;
+
+  color: #d4d4d4;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  width: 17px;
+
+  overflow: hidden;
+}
+
+/* Filled star */
+
+.star.filled {
+  color: #bf6d75;
+}
+
+/* =========================================================
+   HALF STAR
+   ========================================================= */
+
+.star.half {
+  color: #d4d4d4;
+}
+
+.star.half::before {
+  content: "★";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 50%;
+
+  overflow: hidden;
+
+  color: #bf6d75;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
+  .inner {
+    padding-top: 45px;
+    padding-bottom: 60px;
+  }
+
+  .grid {
+    column-gap: 45px;
+  }
+
+  .imageWrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .playButton {
+    width: 74px;
+    height: 74px;
+  }
+
+  .playOuter {
+    width: 74px;
+    height: 74px;
+  }
+
+  .playInner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .name {
+    margin-top: 13px;
+
+    font-size: 19px;
+  }
+
+  .stars {
+    margin-top: 8px;
+  }
+
+  .star {
+    font-size: 19px;
+  }
+}
+
+/* =========================================================
+   DESKTOP / TABLET
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  .inner {
+    padding-top: 35px;
+    padding-bottom: 45px;
+  }
+
+  .grid {
+    column-gap: 20px;
+  }
+
+  .imageWrapper {
+    width: 245px;
+    height: 245px;
+  }
+
+  .playButton {
+    width: 64px;
+    height: 64px;
+  }
+
+  .playOuter {
+    width: 64px;
+    height: 64px;
+  }
+
+  .playInner {
+    width: 44px;
+    height: 44px;
+  }
+
+  .playTriangle {
+    border-top-width: 8px;
+    border-bottom-width: 8px;
+    border-left-width: 13px;
+  }
+
+  .name {
+    margin-top: 10px;
+
+    font-size: 16px;
+  }
+
+  .stars {
+    margin-top: 7px;
+  }
+
+  .star {
+    font-size: 16px;
+    width: 15px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .inner {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .grid {
+    column-gap: 5px;
+  }
+
+  .imageWrapper {
+    width: 210px;
+    height: 210px;
+  }
+
+  .playButton {
+    width: 58px;
+    height: 58px;
+  }
+
+  .playOuter {
+    width: 58px;
+    height: 58px;
+  }
+
+  .playInner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .playTriangle {
+    border-top-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 12px;
+  }
+
+  .name {
+    margin-top: 9px;
+
+    font-size: 14px;
+  }
+
+  .stars {
+    margin-top: 6px;
+  }
+
+  .star {
+    font-size: 14px;
+    width: 13px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .testimonials {
+    overflow: hidden;
+  }
+
+  .inner {
+    padding-top: 35px;
+    padding-bottom: 45px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+
+    row-gap: 35px;
+
+    column-gap: 0;
+  }
+
+  .imageWrapper {
+    width: min(78vw, 330px);
+    height: min(78vw, 330px);
+  }
+
+  .playButton {
+    width: 70px;
+    height: 70px;
+  }
+
+  .playOuter {
+    width: 70px;
+    height: 70px;
+  }
+
+  .playInner {
+    width: 48px;
+    height: 48px;
+  }
+
+  .playTriangle {
+    border-top-width: 9px;
+    border-bottom-width: 9px;
+    border-left-width: 14px;
+  }
+
+  .name {
+    margin-top: 10px;
+
+    font-size: 17px;
+  }
+
+  .stars {
+    margin-top: 7px;
+  }
+
+  .star {
+    font-size: 17px;
+
+    width: 16px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .inner {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .grid {
+    row-gap: 30px;
+  }
+
+  .imageWrapper {
+    width: min(84vw, 320px);
+    height: min(84vw, 320px);
+  }
+
+  .playButton {
+    width: 64px;
+    height: 64px;
+  }
+
+  .playOuter {
+    width: 64px;
+    height: 64px;
+  }
+
+  .playInner {
+    width: 44px;
+    height: 44px;
+  }
+
+  .playTriangle {
+    border-top-width: 8px;
+    border-bottom-width: 8px;
+    border-left-width: 13px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .star {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .imageWrapper {
+    width: 88vw;
+    height: 88vw;
+  }
+
+  .playButton {
+    width: 58px;
+    height: 58px;
+  }
+
+  .playOuter {
+    width: 58px;
+    height: 58px;
+  }
+
+  .playInner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .playTriangle {
+    border-top-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 12px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+
+  .star {
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .playButton {
+    transition: none;
+  }
+}

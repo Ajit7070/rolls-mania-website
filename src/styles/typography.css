@@ -1,0 +1,194 @@
+/* =========================================
+   ROLLS MANIA
+   GLOBAL TYPOGRAPHY SYSTEM
+   ========================================= */
+
+/* =========================================
+   CUSTOM FONT FILES
+   ========================================= */
+
+/*
+   HERO MAIN TITLE
+   Passion One Bold
+   File:
+   public/fonts/PassionOne-Bold.otf
+*/
+
+@font-face {
+  font-family: "PassionOne-Bold";
+  src: url("/fonts/PassionOne-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+   COMMON TITLES
+   Lato Heavy
+   File:
+   public/fonts/Lato-Heavy.ttf
+*/
+
+@font-face {
+  font-family: "Lato-Heavy";
+  src: url("/fonts/Lato-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================
+   FONT VARIABLES
+   ========================================= */
+
+:root {
+  /* -----------------------------------------
+     HERO MAIN TITLE
+     Passion One Bold
+     ----------------------------------------- */
+
+  --rm-font-display: "PassionOne-Bold", sans-serif;
+
+  /* -----------------------------------------
+     COMMON TITLES
+     Lato Heavy
+     ----------------------------------------- */
+
+  --rm-font-heading: "Lato-Heavy", sans-serif;
+
+  /* -----------------------------------------
+     NORMAL BODY TEXT
+     Roboto
+     ----------------------------------------- */
+
+  --rm-font-body: var(--font-roboto), sans-serif;
+
+  /* -----------------------------------------
+     HEADER + BUTTONS
+     Poppins
+     ----------------------------------------- */
+
+  --rm-font-ui: var(--font-poppins), sans-serif;
+
+  /* -----------------------------------------
+     FONT WEIGHTS
+     ----------------------------------------- */
+
+  --rm-weight-regular: 400;
+  --rm-weight-medium: 500;
+  --rm-weight-semibold: 600;
+  --rm-weight-bold: 700;
+  --rm-weight-heavy: 900;
+}
+
+/* =========================================
+   BODY
+   ROBOTO
+   ========================================= */
+
+body {
+  font-family: var(--rm-font-body);
+  font-weight: var(--rm-weight-regular);
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   HERO DISPLAY
+   PASSION ONE BOLD
+   ========================================= */
+
+.rm-display {
+  font-family: var(--rm-font-display);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   COMMON SECTION LABEL
+   LATO HEAVY
+   ========================================= */
+
+.rm-section-label {
+  font-family: var(--rm-font-heading);
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   COMMON SECTION TITLE
+   LATO HEAVY
+   ========================================= */
+
+.rm-section-title {
+  font-family: var(--rm-font-heading);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   BODY TEXT
+   ROBOTO
+   ========================================= */
+
+.rm-body-text {
+  font-family: var(--rm-font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--rm-text);
+}
+
+/* =========================================
+   BUTTON TEXT
+   POPPINS
+   ========================================= */
+
+.rm-button-text {
+  font-family: var(--rm-font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   NAVIGATION TEXT
+   POPPINS
+   ========================================= */
+
+.rm-nav-text {
+  font-family: var(--rm-font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 767px) {
+  .rm-section-title {
+    font-size: clamp(1.8rem, 9vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .rm-body-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
