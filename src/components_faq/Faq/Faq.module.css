@@ -1,0 +1,1344 @@
+/* =========================================
+   ROLLS MANIA FAQ PAGE
+   DESIGN 1 — BOLD FOOD HERO + ACCORDION
+   ========================================= */
+
+.faqPage {
+  width: 100%;
+  overflow: hidden;
+  background: var(--rm-white);
+  color: var(--rm-dark);
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 610px;
+  overflow: hidden;
+  background-color: var(--rm-green);
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("/assets/rolls-mania/faq/faq-hero-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heroContainer {
+  position: relative;
+  min-height: 610px;
+
+  display: flex;
+  align-items: center;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+
+  width: 53%;
+  padding: 65px 0 80px;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 22px;
+
+  color: var(--rm-dark-rose);
+
+  font-family: var(--rm-font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* .heroEyebrow::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--rm-dark-rose);
+} */
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 0;
+
+  color: var(--rm-dark);
+
+  font-family: var(--rm-font-display);
+  font-size: clamp(70px, 8.5vw, 124px);
+  font-weight: 700;
+  line-height: 0.78;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.heroTitle span {
+  color: var(--rm-dark-rose);
+  margin-top: 12px;
+}
+
+.heroDescription {
+  max-width: 440px;
+  margin: 28px 0 30px;
+
+  color: #383838;
+
+  font-family: var(--rm-font-body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.heroButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  min-height: 48px;
+  padding: 0 24px;
+
+  background: var(--rm-dark-rose);
+  border: 1px solid var(--rm-dark-rose);
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  transition: background var(--rm-transition), color var(--rm-transition),
+    transform var(--rm-transition);
+}
+
+.heroButton svg {
+  width: 17px;
+  height: 17px;
+}
+
+.heroButton:hover {
+  background: var(--rm-white);
+  color: var(--rm-dark-rose);
+  transform: translateY(-3px);
+}
+
+.heroFood {
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  right: -5%;
+  transform: translateY(-48%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58%;
+  max-width: 680px;
+  pointer-events: auto;
+}
+
+.heroFoodImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  transform: perspective(1000px) translateY(0) rotateX(var(--hero-tilt-x, 0deg))
+    rotateY(var(--hero-tilt-y, 0deg));
+
+  transform-origin: center center;
+  filter: drop-shadow(0 20px 25px rgba(50, 45, 35, 0.12));
+
+  animation: heroFoodFloat 5s ease-in-out infinite;
+
+  transition: transform 0.25s ease-out, filter 0.3s ease;
+
+  will-change: transform;
+}
+.heroFood:hover .heroFoodImage {
+  filter: drop-shadow(0 26px 32px rgba(50, 45, 35, 0.2));
+}
+
+.heroDecoration {
+  position: absolute;
+  z-index: 1;
+  right: 2%;
+  bottom: 16%;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-family: var(--rm-font-display);
+  font-size: clamp(30px, 4vw, 55px);
+  line-height: 0.78;
+  text-align: right;
+  transform: rotate(-8deg);
+
+  pointer-events: none;
+}
+
+.heroBottomLine {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding: 12px 20px;
+
+  background: var(--rm-dark-rose);
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+/* =========================================
+   FAQ SECTION
+   ========================================= */
+
+.faqSection {
+  position: relative;
+  padding: 100px 0 110px;
+  background: var(--rm-white);
+}
+
+.sectionHeading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.sectionLabel {
+  display: inline-block;
+  margin-bottom: 16px;
+
+  color: var(--rm-dark-rose);
+
+  font-family: var(--rm-font-heading);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+
+  color: var(--rm-green);
+
+  font-family: var(--rm-font-heading);
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.sectionTitle span {
+  margin-top: 5px;
+  color: #986868;
+}
+
+.sectionDescription {
+  margin: 19px 0 0;
+
+  color: var(--rm-muted);
+
+  font-family: var(--rm-font-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   CATEGORY FILTERS
+   ========================================= */
+
+.categoryList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 0 auto 48px;
+}
+
+.categoryButton {
+  min-height: 42px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(151, 83, 76, 0.25);
+  border-radius: var(--rm-radius-pill);
+
+  background: var(--rm-white);
+  color: var(--rm-text);
+
+  font-family: var(--rm-font-ui);
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background var(--rm-transition), border-color var(--rm-transition),
+    color var(--rm-transition), transform var(--rm-transition);
+}
+
+.categoryButton:hover {
+  border-color: var(--rm-dark-rose);
+  color: var(--rm-dark-rose);
+  transform: translateY(-2px);
+}
+
+.categoryButtonActive {
+  border-color: var(--rm-dark-rose);
+  background: var(--rm-dark-rose);
+  color: var(--rm-white);
+}
+
+.categoryButtonActive:hover {
+  background: var(--rm-deep-rose);
+  color: var(--rm-white);
+}
+
+/* =========================================
+   FAQ GRID
+   ========================================= */
+
+.faqLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+  gap: 42px;
+}
+
+.faqList {
+  width: 100%;
+  min-width: 0;
+  border-top: 1px solid rgba(151, 83, 76, 0.22);
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba(151, 83, 76, 0.22);
+  background: var(--rm-white);
+
+  transition: background var(--rm-transition);
+}
+
+.faqItemOpen {
+  background: #fffaf7;
+}
+
+.faqQuestion {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+  min-height: 88px;
+  padding: 20px 8px;
+
+  border: 0;
+  background: transparent;
+  color: var(--rm-dark);
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.questionNumber {
+  color: var(--rm-dark-rose);
+
+  font-family: var(--rm-font-display);
+  font-size: 25px;
+  line-height: 1;
+}
+
+.questionText {
+  color: var(--rm-dark);
+
+  font-family: var(--rm-font-heading);
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.questionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgba(151, 83, 76, 0.25);
+  border-radius: 50%;
+
+  background: var(--rm-cream);
+  color: var(--rm-dark-rose);
+
+  transition: background var(--rm-transition), color var(--rm-transition),
+    transform var(--rm-transition);
+}
+
+.questionIcon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.faqItemOpen .questionIcon {
+  background: var(--rm-dark-rose);
+  color: var(--rm-white);
+  transform: rotate(180deg);
+}
+
+.faqQuestion:hover .questionText {
+  color: var(--rm-dark-rose);
+}
+
+.faqQuestion:focus-visible {
+  outline-offset: -3px;
+}
+
+.answerWrapper {
+  padding: 0 56px 25px 66px;
+}
+
+.faqAnswer {
+  color: var(--rm-text);
+
+  font-family: var(--rm-font-body);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* =========================================
+   HELP CARD
+   ========================================= */
+
+.helpCard {
+  position: relative;
+  isolation: isolate;
+
+  min-height: 390px;
+  padding: 34px 27px;
+
+  overflow: hidden;
+
+  background: var(--rm-green);
+  border-radius: 3px;
+}
+
+.helpLabel {
+  display: inline-block;
+  margin-bottom: 22px;
+
+  color: var(--rm-dark-rose);
+
+  font-family: var(--rm-font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.helpTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: var(--rm-font-display);
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.helpTitle span {
+  margin-top: 8px;
+  color: rgb(49, 93, 88);
+}
+
+.helpDescription {
+  position: relative;
+  z-index: 2;
+
+  margin: 24px 0;
+
+  color: #393939;
+
+  font-family: var(--rm-font-body);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.helpButton {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 42px;
+  padding: 0 17px;
+
+  background: var(--rm-dark-rose);
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-ui);
+  font-size: 11px;
+  font-weight: 600;
+
+  transition: background var(--rm-transition), transform var(--rm-transition);
+}
+
+.helpButton svg {
+  width: 15px;
+  height: 15px;
+}
+
+.helpButton:hover {
+  background: var(--rm-deep-rose);
+  color: var(--rm-white);
+  transform: translateY(-2px);
+}
+
+.helpDecoration {
+  position: absolute;
+  z-index: -1;
+  right: -15px;
+  bottom: -38px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-family: var(--rm-font-display);
+  font-size: 150px;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   BOTTOM CTA
+   ========================================= */
+
+.bottomCta {
+  position: relative;
+  padding: 54px 0;
+
+  background: var(--rm-cream);
+  border-top: 1px solid rgba(151, 83, 76, 0.12);
+}
+
+.bottomCtaInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.bottomCtaLabel {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--rm-dark-rose);
+
+  font-family: var(--rm-font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.bottomCtaTitle {
+  margin: 0;
+
+  color: var(--rm-dark);
+
+  font-family: var(--rm-font-display);
+  font-size: clamp(42px, 5vw, 65px);
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+.bottomCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  min-height: 50px;
+  padding: 0 25px;
+
+  flex-shrink: 0;
+
+  background: var(--rm-dark-rose);
+  color: var(--rm-white);
+
+  font-family: var(--rm-font-ui);
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: background var(--rm-transition), transform var(--rm-transition);
+}
+
+.bottomCtaButton svg {
+  width: 17px;
+  height: 17px;
+}
+
+.bottomCtaButton:hover {
+  background: var(--rm-deep-rose);
+  color: var(--rm-white);
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1199px) {
+  .hero,
+  .heroContainer {
+    min-height: 550px;
+  }
+
+  .heroContent {
+    width: 55%;
+  }
+
+  .heroTitle {
+    font-size: clamp(66px, 8.5vw, 100px);
+  }
+
+  .heroFood {
+    right: -8%;
+    width: 58%;
+  }
+
+  .faqSection {
+    padding: 85px 0 90px;
+  }
+
+  .faqLayout {
+    grid-template-columns: minmax(0, 1fr) 265px;
+    gap: 28px;
+  }
+
+  .helpCard {
+    padding: 30px 23px;
+  }
+
+  .helpTitle {
+    font-size: 52px;
+  }
+
+  .questionText {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   TABLET / SMALL LAPTOP
+   ========================================= */
+
+@media (max-width: 991px) {
+  .hero,
+  .heroContainer {
+    min-height: 500px;
+  }
+
+  .heroContent {
+    width: 58%;
+    padding: 60px 0 70px;
+  }
+
+  .heroTitle {
+    font-size: clamp(62px, 8.5vw, 85px);
+  }
+
+  .heroDescription {
+    max-width: 370px;
+    font-size: 14px;
+  }
+
+  .heroFood {
+    right: -10%;
+    width: 57%;
+  }
+
+  .faqLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+  }
+
+  .helpCard {
+    min-height: auto;
+    padding: 30px;
+  }
+
+  .helpTitle {
+    font-size: 55px;
+  }
+
+  .helpDescription {
+    max-width: 460px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+  .hero,
+  .heroContainer {
+    min-height: 680px;
+  }
+
+  .heroContainer {
+    align-items: flex-start;
+  }
+
+  .hero::after {
+    background: linear-gradient(
+      180deg,
+      rgba(166, 216, 207, 0.98) 0%,
+      rgba(166, 216, 207, 0.94) 43%,
+      rgba(166, 216, 207, 0.12) 100%
+    );
+  }
+
+  .heroContent {
+    width: 100%;
+    padding: 55px 0 0;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .heroTitle {
+    font-size: clamp(65px, 13vw, 92px);
+  }
+
+  .heroTitle span {
+    margin-top: 9px;
+  }
+
+  .heroDescription {
+    max-width: 360px;
+    margin: 22px 0;
+    font-size: 14px;
+  }
+
+  .heroButton {
+    min-height: 44px;
+    padding: 0 18px;
+    font-size: 11px;
+  }
+
+  .heroFood {
+    top: auto;
+    right: -6%;
+    bottom: 23px;
+    transform: none;
+
+    width: 94%;
+    max-width: 520px;
+  }
+
+  .heroDecoration {
+    right: 2%;
+    bottom: 19%;
+    font-size: 32px;
+  }
+
+  .heroBottomLine {
+    padding: 10px 12px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+
+  .faqSection {
+    padding: 68px 0 72px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 30px;
+  }
+
+  .sectionLabel {
+    margin-bottom: 13px;
+    font-size: 11px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(34px, 8.5vw, 48px);
+  }
+
+  .sectionDescription {
+    margin-top: 15px;
+    font-size: 13px;
+  }
+
+  .categoryList {
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .categoryButton {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  .faqLayout {
+    gap: 28px;
+  }
+
+  .faqQuestion {
+    grid-template-columns: 30px minmax(0, 1fr) 32px;
+    gap: 10px;
+    min-height: 76px;
+    padding: 16px 2px;
+  }
+
+  .questionNumber {
+    font-size: 21px;
+  }
+
+  .questionText {
+    font-size: 14px;
+  }
+
+  .questionIcon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .questionIcon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .answerWrapper {
+    padding: 0 10px 22px 42px;
+  }
+
+  .faqAnswer {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .helpCard {
+    padding: 28px 24px;
+  }
+
+  .helpLabel {
+    margin-bottom: 18px;
+  }
+
+  .helpTitle {
+    font-size: 49px;
+  }
+
+  .helpDescription {
+    font-size: 13px;
+  }
+
+  .bottomCta {
+    padding: 40px 0;
+  }
+
+  .bottomCtaInner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .bottomCtaTitle {
+    font-size: clamp(42px, 10vw, 56px);
+  }
+
+  .bottomCtaButton {
+    min-height: 46px;
+    padding: 0 19px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .hero,
+  .heroContainer {
+    min-height: 620px;
+  }
+
+  .heroContent {
+    padding-top: 45px;
+  }
+
+  .heroTitle {
+    font-size: clamp(58px, 13.5vw, 75px);
+  }
+
+  .heroDescription {
+    max-width: 310px;
+    margin: 18px 0 20px;
+    font-size: 13px;
+  }
+
+  .heroFood {
+    /* right: -8%; */
+    right: 0%;
+    bottom: 27px;
+    width: 105%;
+  }
+
+  .heroDecoration {
+    bottom: 19%;
+    font-size: 26px;
+  }
+
+  .faqSection {
+    padding: 55px 0 60px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(31px, 9vw, 40px);
+  }
+
+  .categoryList {
+    gap: 7px;
+  }
+
+  .categoryButton {
+    min-height: 36px;
+    padding: 0 11px;
+    font-size: 10px;
+  }
+
+  .faqQuestion {
+    grid-template-columns: 25px minmax(0, 1fr) 29px;
+    gap: 8px;
+    min-height: 72px;
+  }
+
+  .questionNumber {
+    font-size: 19px;
+  }
+
+  .questionText {
+    font-size: 13px;
+  }
+
+  .questionIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .answerWrapper {
+    padding-left: 33px;
+  }
+
+  .helpTitle {
+    font-size: 45px;
+  }
+
+  .bottomCtaTitle {
+    font-size: 43px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton,
+  .categoryButton,
+  .questionIcon,
+  .helpButton,
+  .bottomCtaButton {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================
+   FAQ — MATCH ABOUT US DESIGN SYSTEM
+   ========================================= */
+
+/* =========================================
+   ALL EYEBROWS / SECTION LABELS
+   ========================================= */
+
+.heroEyebrow,
+.sectionLabel,
+.helpLabel,
+.bottomCtaLabel {
+  color: rgb(155, 116, 113);
+  font-family: Lato-Heavy, sans-serif;
+  font-weight: 900;
+}
+
+/* Keep the small line beside the hero eyebrow
+   in the same brand color */
+
+.heroEyebrow::before {
+  background: rgb(155, 116, 113);
+}
+
+/* =========================================
+   ALL TITLES
+   PASSION ONE BOLD
+   ========================================= */
+
+.heroTitle,
+.sectionTitle,
+.helpTitle,
+.bottomCtaTitle,
+.questionText {
+  font-family: PassionOne-Bold, sans-serif;
+  font-weight: 700;
+}
+
+/* =========================================
+   HERO TITLE COLORS
+   GOT — WHITE
+   QUESTIONS? — DARK TEAL
+   ========================================= */
+
+.heroTitle {
+  color: #ffffff;
+}
+
+.heroTitle span {
+  color: rgb(49, 93, 88);
+}
+
+/* =========================================
+   ALL PARAGRAPHS
+   ROBOTO
+   ========================================= */
+
+.faqPage p {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+/* FAQ answers are divs, not paragraphs */
+
+.faqAnswer {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+/* =========================================
+   BUTTON BASE — MATCH ABOUT US BUTTONS
+   ========================================= */
+
+.heroButton,
+.helpButton,
+.bottomCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 44px;
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 5px;
+
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* =========================================
+   HERO BUTTON
+   MATCH ABOUT US HERO BUTTON
+   ========================================= */
+
+.heroButton {
+  background: rgb(201, 170, 163);
+  color: #ffffff;
+}
+
+.heroButton:hover {
+  background: rgb(155, 116, 113);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+}
+
+/* =========================================
+   CONTACT BUTTON
+   MATCH ABOUT US MINT BUTTON HOVER
+   ========================================= */
+
+.helpButton {
+  background: var(--rm-green-dark);
+  color: #ffffff;
+}
+
+.helpButton:hover {
+  background: #087e79;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   BOTTOM CTA BUTTON
+   MATCH ABOUT US DARK BUTTON
+   ========================================= */
+
+.bottomCtaButton {
+  background: var(--rm-black);
+  color: var(--rm-white);
+}
+
+.bottomCtaButton:hover {
+  background: rgb(155, 116, 113);
+  color: var(--rm-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+}
+
+/* =========================================
+   CATEGORY FILTERS
+   KEEP THEIR PILL SHAPE
+   USE POPPINS
+   ========================================= */
+
+.categoryButton {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+}
+
+.categoryButtonActive {
+  background: rgb(155, 116, 113);
+  border-color: rgb(155, 116, 113);
+  color: #ffffff;
+}
+
+.categoryButtonActive:hover {
+  background: #087e79;
+  border-color: #087e79;
+  color: #ffffff;
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton,
+  .helpButton,
+  .bottomCtaButton,
+  .categoryButton {
+    transition: none;
+  }
+}
+
+/* =========================================
+   FAQ SIDEBAR FOOD IMAGE
+   ========================================= */
+
+.helpSidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+
+.helpSidebar .helpCard {
+  width: 100%;
+  align-self: stretch;
+}
+
+/* .sidebarFood {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 900px;
+  overflow: visible;
+} */
+.sidebarFood {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 28px;
+  padding-bottom: 35px;
+
+  perspective: 1000px;
+  overflow: visible;
+}
+.sidebarFoodImage {
+  display: block;
+  width: 125%;
+  max-width: 410px;
+  height: auto;
+  object-fit: contain;
+
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+
+  transform-origin: center center;
+
+  filter: drop-shadow(0 18px 24px rgba(30, 40, 35, 0.15));
+
+  animation: sidebarFoodFloat 4.5s ease-in-out infinite;
+
+  transition: transform 0.25s ease-out, filter 0.3s ease;
+}
+
+.sidebarFood:hover .sidebarFoodImage {
+  filter: drop-shadow(0 25px 30px rgba(30, 40, 35, 0.22));
+}
+
+@keyframes sidebarFoodFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+/* =========================================
+   HERO FOOD IMAGE ANIMATION
+   ========================================= */
+
+.heroFoodImage {
+  animation: heroFoodFloat 5s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes heroFoodFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -13px;
+  }
+}
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .heroFoodImage {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    translate: none !important;
+  }
+}
+/* Responsive */
+@media (max-width: 991px) {
+  .helpSidebar {
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  /* .sidebarFoodImage {
+    max-width: 390px;
+  } */
+  .sidebarFoodImage {
+    width: 100%;
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebarFood {
+    margin-top: 18px;
+    padding: 0 8px 25px;
+  }
+
+  .sidebarFoodImage {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .sidebarFoodImage,
+  .heroFoodImage {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sidebarFoodImage {
+    transform: none !important;
+    translate: none !important;
+  }
+}
+
+/* FAQ NUMBERS AND QUESTIONS — LATO HEAVY */
+
+.questionNumber,
+.questionText {
+  font-family: Lato-Heavy, sans-serif;
+  font-weight: 900;
+}

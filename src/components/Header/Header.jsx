@@ -12,15 +12,15 @@ const navItems = [
   },
   {
     label: "About Us",
-    href: "#about",
+    href: "AboutUs",
   },
   {
     label: "Menu",
-    href: "#menu",
+    href: "MenuPage",
   },
   {
     label: "FAQ",
-    href: "#faq",
+    href: "/Faq",
   },
   {
     label: "Store Locator",

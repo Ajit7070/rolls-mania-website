@@ -1,21 +1,30 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./VideoSection.module.css";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function VideoSection() {
   const sectionRef = useRef(null);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-  const youtubeUrl = "https://www.youtube.com/watch?v=BumL45FNj4M";
+  const youtubeEmbedUrl =
+    "https://www.youtube-nocookie.com/embed/BumL45FNj4M?autoplay=1&rel=0";
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: {
           ease: "power3.out",
+        },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
         },
       });
 
@@ -58,61 +67,116 @@ export default function VideoSection() {
     return () => ctx.revert();
   }, []);
 
+  // Close the popup using the Escape key.
+  useEffect(() => {
+    if (!isVideoOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsVideoOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Prevent background scrolling while the popup is open.
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isVideoOpen]);
+
   return (
-    <section ref={sectionRef} className={styles.videoSection} id="intro-video">
-      {/* =====================================================
-          VECTOR BACKGROUND
-          ===================================================== */}
+    <>
+      <section
+        ref={sectionRef}
+        className={styles.videoSection}
+        id="intro-video"
+      >
+        {/* VECTOR BACKGROUND */}
 
-      <div className={styles.background}>
-        <Image
-          src="/assets/rolls-mania/video/video-bg.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className={styles.backgroundImage}
-        />
-      </div>
+        <div className={styles.background}>
+          <Image
+            src="/assets/rolls-mania/video/video-bg.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={styles.backgroundImage}
+          />
+        </div>
 
-      {/* =====================================================
-          CONTENT
-          ===================================================== */}
+        {/* CONTENT */}
 
-      <div className="rm-container">
-        <div className={styles.inner}>
-          <div className={`${styles.content} videoContent`}>
-            <p className={`${styles.label} videoLabel`}>INTRO VIDEO</p>
+        <div className="rm-container">
+          <div className={styles.inner}>
+            <div className={`${styles.content} videoContent`}>
+              <p className={`${styles.label} videoLabel`}>INTRO VIDEO</p>
 
-            <h2 className={styles.title}>
-              <span className="videoTitleLine">FRESH TASTE AT A</span>
+              <h2 className={styles.title}>
+                <span className="videoTitleLine">FRESH TASTE AT A</span>
 
-              <span className="videoTitleLine">GREAT PRICE, ONLY FOR</span>
+                <span className="videoTitleLine">GREAT PRICE, ONLY FOR</span>
 
-              <span className="videoTitleLine">DELICIOUS FOOD LOVER.</span>
-            </h2>
+                <span className="videoTitleLine">DELICIOUS FOOD LOVER.</span>
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* =====================================================
-          PLAY BUTTON
-          OPENS YOUTUBE IN NEW TAB
-          ===================================================== */}
+        {/* PLAY BUTTON */}
 
-      <a
-        href={youtubeUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${styles.playButton} videoPlayButton`}
-        aria-label="Watch Rolls Mania intro video on YouTube"
-      >
-        <span className={styles.playOuter}>
-          <span className={styles.playInner}>
-            <span className={styles.playTriangle}></span>
+        <button
+          type="button"
+          className={`${styles.playButton} videoPlayButton`}
+          aria-label="Play Rolls Mania intro video"
+          onClick={() => setIsVideoOpen(true)}
+        >
+          <span className={styles.playOuter}>
+            <span className={styles.playInner}>
+              <span className={styles.playTriangle}></span>
+            </span>
           </span>
-        </span>
-      </a>
-    </section>
+        </button>
+      </section>
+
+      {/* VIDEO POPUP */}
+
+      {isVideoOpen && (
+        <div
+          className={styles.videoModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Rolls Mania intro video"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setIsVideoOpen(false);
+            }
+          }}
+        >
+          <button
+            type="button"
+            className={styles.closeButton}
+            aria-label="Close video"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            &times;
+          </button>
+
+          <div className={styles.videoModalContent}>
+            <iframe
+              key="rolls-mania-intro-video"
+              src={youtubeEmbedUrl}
+              title="Rolls Mania Intro Video"
+              allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

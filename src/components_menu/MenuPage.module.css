@@ -1,0 +1,1988 @@
+/* =========================================================
+   ROLLS MANIA MENU — DESIGN 1: CIRCULAR CATEGORY HUB
+   Uses the global variables in variables.css and typography.css
+   ========================================================= */
+
+.menuPage {
+  --menu-red: #986868;
+  --menu-red-dark: #986868;
+  --menu-teal: #36bfb6;
+  --menu-teal-dark: #087e79;
+  --menu-cream: #fff7ee;
+  --menu-ink: #151515;
+  width: 100%;
+  overflow: clip;
+  color: var(--rm-dark);
+  background: var(--rm-white);
+}
+
+.menuPage section[id] {
+  scroll-margin-top: 28px;
+}
+
+.menuPage button,
+.menuPage a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   MENU HERO — MATCH ABOUT US HERO BACKGROUND
+   ========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 55px 0 75px;
+
+  background-color: #35bdb5;
+  background-image: url("/assets/rolls-mania/menu_page/menu-hero-bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* The uploaded background already contains its own artwork */
+.heroTexture {
+  display: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 70px);
+}
+/* =========================================================
+   HERO FOOD IMAGE
+   ========================================================= */
+
+.heroVisual {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 420px;
+  place-items: center;
+}
+
+.heroFoodFrame {
+  position: relative;
+  width: 112%;
+  max-width: 760px;
+  margin-inline: auto;
+  animation: heroFoodFloat 6s ease-in-out infinite;
+}
+
+.heroFoodImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgba(0, 45, 42, 0.12));
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 3;
+  max-width: 480px;
+}
+
+.eyebrow,
+.sectionLabel {
+  display: inline-block;
+  color: var(--menu-red);
+  font-family: var(--rm-font-heading);
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #123f3c;
+}
+
+.heroTitle {
+  margin: 17px 0 20px;
+  color: var(--rm-white) !important;
+  font-family: var(--rm-font-display);
+  font-size: clamp(5rem, 9vw, 8.6rem);
+  font-weight: 700;
+  line-height: 0.77;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.heroTitle > span {
+  display: block;
+}
+
+.heroTitle .heroAccent {
+  color: #315d58 !important;
+  font-size: 1.16em;
+  /* text-shadow: 2px 3px 0 rgba(255, 255, 255, 0.12); */
+}
+
+.heroCopy > p {
+  margin: 0;
+  color: #173f3b;
+  font-family: var(--rm-font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.heroButton,
+.lightButton,
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 43px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--rm-radius-pill);
+  background: var(--menu-red);
+  color: #fff;
+  font-family: var(--rm-font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.heroButton {
+  margin-top: 23px;
+}
+
+.heroButton:hover,
+.viewAll:hover {
+  background: var(--menu-red-dark);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(241, 29, 39, 0.2);
+}
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 345px;
+}
+
+.heroFoodFrame {
+  position: relative;
+  width: min(100%, 610px);
+  transform: rotate(-4deg);
+}
+
+.foodPlaceholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.92) 0 26%,
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.55),
+      transparent 62%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.32),
+      rgba(255, 255, 255, 0.05)
+    );
+}
+
+.placeholderRing {
+  position: absolute;
+  inset: 8%;
+  z-index: -1;
+  border: 1px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+.placeholderText {
+  max-width: 72%;
+  color: rgba(21, 21, 21, 0.64);
+  font-family: var(--rm-font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.heroFood {
+  aspect-ratio: 1 / 0.88;
+  border-radius: 48% 52% 46% 54%;
+  background: radial-gradient(
+      ellipse at 50% 54%,
+      rgba(255, 255, 255, 0.2),
+      transparent 55%
+    ),
+    linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.32),
+      rgba(255, 255, 255, 0.02)
+    );
+  box-shadow: 0 25px 55px rgba(18, 73, 67, 0.12);
+}
+
+.heroFood .placeholderText {
+  max-width: 48%;
+  font-size: 0.85rem;
+}
+
+.doodle {
+  position: absolute;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.doodleOne {
+  top: 4%;
+  left: 5%;
+  transform: rotate(-18deg);
+}
+
+.doodleTwo {
+  right: 5%;
+  bottom: 13%;
+  color: var(--menu-red);
+  transform: rotate(14deg);
+}
+
+.handwritten {
+  position: absolute;
+  right: -1%;
+  bottom: 6%;
+  color: var(--menu-red);
+  font-family: var(--rm-font-display);
+  font-size: clamp(1.5rem, 2.7vw, 2.8rem);
+  line-height: 0.86;
+  text-align: center;
+  transform: rotate(-9deg);
+}
+.heroBottomEdge {
+  display: none;
+}
+/* .heroBottomEdge {
+  position: absolute;
+  right: -2%;
+  bottom: -1px;
+  left: -2%;
+  height: 25px;
+  background: #fff;
+  clip-path: polygon(
+    0 62%,
+    4% 38%,
+    8% 67%,
+    12% 34%,
+    16% 61%,
+    20% 43%,
+    24% 70%,
+    28% 36%,
+    32% 62%,
+    36% 42%,
+    40% 71%,
+    44% 40%,
+    48% 65%,
+    52% 35%,
+    56% 62%,
+    60% 43%,
+    64% 72%,
+    68% 39%,
+    72% 65%,
+    76% 36%,
+    80% 70%,
+    84% 43%,
+    88% 62%,
+    92% 34%,
+    96% 65%,
+    100% 42%,
+    100% 100%,
+    0 100%
+  );
+} */
+
+/* CATEGORY HUB */
+.categoryHub {
+  position: relative;
+  padding: 65px 0 45px;
+  background: #fff;
+}
+
+.hubIntro {
+  max-width: 650px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.sectionTitle {
+  margin: 10px 0 0;
+  color: var(--rm-black);
+  font-family: var(--rm-font-heading);
+  font-size: clamp(2rem, 3.3vw, 3.35rem);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.sectionTitle span {
+  color: var(--menu-red);
+}
+
+.hubIntro > p,
+.sectionHeading p,
+.finalCtaCopy > p {
+  margin: 12px 0 0;
+  color: var(--rm-text);
+  font-family: var(--rm-font-body);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 27px 22px;
+}
+
+.categoryButton {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--rm-dark);
+  cursor: pointer;
+  text-align: center;
+}
+
+.categoryImageWrap {
+  position: relative;
+  display: block;
+  width: clamp(92px, 10vw, 132px);
+  aspect-ratio: 1;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--menu-cream);
+  box-shadow: 0 5px 17px rgba(0, 0, 0, 0.11);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.categoryImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff4df, #f1c6a5);
+}
+
+.categoryImage .placeholderText {
+  font-size: 0.54rem;
+}
+
+.categoryNumber {
+  position: absolute;
+  right: -4px;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--menu-red);
+  color: #fff;
+  font-family: var(--rm-font-ui);
+  font-size: 0.58rem;
+  font-weight: 600;
+}
+
+.categoryName {
+  max-width: 150px;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-heading);
+  font-size: 0.86rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.categoryButton:hover .categoryImageWrap,
+.categoryButton:focus-visible .categoryImageWrap {
+  border-color: var(--menu-red);
+  box-shadow: 0 10px 24px rgba(241, 29, 39, 0.17);
+  transform: translateY(-5px) scale(1.035);
+}
+
+.categoryButton:focus-visible,
+.heroButton:focus-visible,
+.viewAll:focus-visible,
+.lightButton:focus-visible,
+.railArrow:focus-visible {
+  outline: 3px solid var(--menu-teal-dark);
+  outline-offset: 4px;
+}
+
+.hubArrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 28px auto 0;
+  border: 1px solid rgba(241, 29, 39, 0.2);
+  border-radius: 50%;
+  color: var(--menu-red);
+  font-size: 1.2rem;
+}
+
+/* CATEGORY SECTIONS */
+.menuSections {
+  background: #fff;
+}
+
+.menuSection {
+  padding: 54px 0 48px;
+  background: #fff;
+}
+
+.menuSection:nth-child(even) {
+  background: linear-gradient(180deg, #fff 0%, #fffaf5 100%);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 25px;
+}
+
+.sectionHeading .sectionTitle {
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+}
+
+.sectionHeading p {
+  margin-top: 8px;
+  font-size: 0.87rem;
+}
+
+.viewAll {
+  flex-shrink: 0;
+  min-height: 38px;
+  padding: 0 17px;
+  font-size: 0.67rem;
+}
+
+.featuredRail {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 12px;
+}
+
+.featuredTrack {
+  display: grid;
+  grid-auto-columns: minmax(160px, 1fr);
+  grid-auto-flow: column;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 5px 3px 14px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(151, 83, 76, 0.4) transparent;
+}
+
+.featuredTrack > * {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.railArrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--rm-dark);
+  box-shadow: var(--rm-shadow-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.railArrow:hover {
+  background: var(--menu-red);
+  color: #fff;
+  transform: scale(1.06);
+}
+
+.menuItem {
+  min-width: 0;
+  text-align: center;
+}
+
+.itemVisual {
+  width: 100%;
+  max-width: 190px;
+  margin: 0 auto 13px;
+}
+
+.itemVisual .foodPlaceholder {
+  border: 1px solid rgba(151, 83, 76, 0.1);
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.96) 0 30%,
+      transparent 31%
+    ),
+    linear-gradient(135deg, #fff2dc, #f6d6b7);
+  box-shadow: 0 8px 18px rgba(90, 45, 25, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menuItem h3 {
+  margin: 0;
+  color: var(--rm-dark);
+  font-family: var(--rm-font-heading);
+  font-size: 0.91rem;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: capitalize;
+}
+
+.eggNote {
+  margin: 5px 0 0;
+  color: var(--rm-muted);
+  font-family: var(--rm-font-body);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.featuredCard {
+  min-width: 0;
+  padding: 13px 12px 15px;
+  border: 1px solid rgba(151, 83, 76, 0.1);
+  border-radius: var(--rm-radius-lg);
+  background: #fff;
+  box-shadow: var(--rm-shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featuredCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--rm-shadow-md);
+}
+
+.featuredCard .itemVisual {
+  max-width: none;
+}
+
+.featuredCard .foodPlaceholder {
+  aspect-ratio: 1 / 0.92;
+}
+
+.featuredCard .placeholderText {
+  font-size: 0.58rem;
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px 18px;
+}
+
+.gridCard {
+  min-width: 0;
+  padding: 15px 13px 17px;
+  border: 1px solid rgba(151, 83, 76, 0.1);
+  border-radius: var(--rm-radius-lg);
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.035);
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.gridCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(241, 29, 39, 0.22);
+  box-shadow: var(--rm-shadow-md);
+}
+
+.gridCard .itemVisual {
+  max-width: 155px;
+}
+
+.gridCard .placeholderText {
+  font-size: 0.58rem;
+}
+
+.compactSection {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+.compactItemsGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.compactItemsGrid .gridCard {
+  padding: 18px 12px;
+  border-radius: var(--rm-radius-md);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.compactItemsGrid .itemVisual {
+  display: none;
+}
+
+.compactItemsGrid .menuItem h3 {
+  font-size: 0.82rem;
+}
+
+/* FEATURE BANNER */
+.wrapSection {
+  padding: 35px 0 50px;
+  background: #fff !important;
+}
+
+.crunchyBanner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  min-height: 290px;
+  overflow: hidden;
+  padding: 35px 42px;
+  border-radius: var(--rm-radius-lg);
+  background: radial-gradient(
+      circle at 76% 50%,
+      rgba(241, 29, 39, 0.65),
+      transparent 34%
+    ),
+    linear-gradient(115deg, #3a100e 0%, #681c17 58%, #2a0c0b 100%);
+  color: #fff;
+}
+
+.bannerCopy {
+  position: relative;
+  z-index: 2;
+}
+
+.bannerEyebrow {
+  color: #ffd9a6;
+  font-family: var(--rm-font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bannerCopy h2 {
+  max-width: 410px;
+  margin: 10px 0;
+  color: #fff;
+  font-family: var(--rm-font-display);
+  font-size: clamp(2.7rem, 4.7vw, 4.8rem);
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.bannerCopy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--rm-font-body);
+  font-size: 0.88rem;
+}
+
+.lightButton {
+  min-height: 37px;
+  margin-top: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: #fff;
+  color: #46110e;
+  font-size: 0.65rem;
+}
+
+.lightButton:hover {
+  background: var(--menu-red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.bannerFood {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.bannerFood .foodPlaceholder {
+  width: min(100%, 365px);
+  border: 5px solid rgba(255, 255, 255, 0.15);
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.9) 0 26%,
+      transparent 27%
+    ),
+    linear-gradient(135deg, #f9c78c, #f26b42);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
+  transform: rotate(-8deg);
+}
+
+.bannerFood .placeholderText {
+  color: #4c1712;
+  font-size: 0.7rem;
+}
+
+.bannerDoodle {
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  color: #fff;
+  font-size: 4rem;
+  transform: rotate(15deg);
+}
+
+.bannerItems {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 580px;
+  margin: 28px auto 0;
+}
+
+.bannerItems > * {
+  padding: 12px;
+  border: 1px solid rgba(151, 83, 76, 0.1);
+  border-radius: var(--rm-radius-lg);
+  background: #fff;
+}
+
+.bannerItems .itemVisual {
+  max-width: 175px;
+}
+
+/* END CTA */
+.finalCta {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0;
+  background: var(--menu-cream);
+}
+
+.finalCtaInner {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.finalCtaCopy {
+  max-width: 620px;
+}
+
+.finalCtaCopy .sectionTitle {
+  margin-top: 12px;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+}
+
+.finalCtaFood {
+  width: 100%;
+  max-width: 380px;
+  justify-self: center;
+}
+
+.finalCtaFood .foodPlaceholder {
+  background: linear-gradient(135deg, #f7d9bd, #fff);
+  box-shadow: var(--rm-shadow-md);
+}
+
+/* RESPONSIVE */
+@media (min-width: 1400px) {
+  .hero {
+    min-height: 540px;
+  }
+
+  .categoryGrid {
+    gap: 32px 28px;
+  }
+
+  .menuSection {
+    padding-top: 62px;
+    padding-bottom: 56px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hero {
+    min-height: 440px;
+  }
+
+  .heroTitle {
+    font-size: clamp(4.8rem, 9vw, 7rem);
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px 14px;
+  }
+
+  .categoryImageWrap {
+    width: clamp(82px, 10vw, 112px);
+  }
+
+  .itemsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .compactItemsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .heroInner {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 15px;
+  }
+
+  .heroVisual {
+    min-height: 290px;
+  }
+
+  .categoryHub {
+    padding-top: 52px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .categoryImageWrap {
+    width: clamp(82px, 13vw, 112px);
+  }
+
+  .featuredTrack {
+    grid-auto-columns: minmax(155px, 1fr);
+    gap: 13px;
+  }
+
+  .crunchyBanner {
+    min-height: 250px;
+    padding: 28px;
+  }
+
+  .itemsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 13px;
+  }
+
+  .compactItemsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    padding: 38px 0 48px;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .heroCopy {
+    max-width: 100%;
+    padding: 10px 0 0;
+    text-align: center;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .heroTitle {
+    align-items: center;
+  }
+
+  .heroCopy > p {
+    font-size: 0.9rem;
+  }
+
+  .heroButton {
+    min-height: 40px;
+    margin-top: 18px;
+    font-size: 0.66rem;
+  }
+
+  .heroVisual {
+    width: min(100%, 500px);
+    min-height: 0;
+    margin: 0 auto;
+  }
+
+  .heroFoodFrame {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .heroFoodImage {
+    width: 100%;
+  }
+
+  .heroFood .placeholderText {
+    font-size: 0.68rem;
+  }
+
+  .handwritten {
+    right: 1%;
+    bottom: 5%;
+    font-size: 1.8rem;
+  }
+
+  .categoryHub {
+    padding: 42px 0 30px;
+  }
+
+  .hubIntro {
+    margin-bottom: 24px;
+  }
+
+  .hubIntro .sectionTitle {
+    font-size: clamp(1.8rem, 8vw, 2.7rem);
+  }
+
+  .hubIntro > p {
+    max-width: 300px;
+    margin: 10px auto 0;
+    font-size: 0.84rem;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px 7px;
+  }
+
+  .categoryImageWrap {
+    width: clamp(64px, 17vw, 104px);
+    border-width: 2px;
+  }
+
+  .categoryNumber {
+    width: 22px;
+    height: 22px;
+    font-size: 0.5rem;
+  }
+
+  .categoryName {
+    max-width: 95px;
+    font-size: 0.68rem;
+  }
+
+  .categoryButton {
+    gap: 8px;
+  }
+
+  .hubArrow {
+    margin-top: 22px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .menuSection {
+    padding: 42px 0 35px;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .sectionHeading .sectionTitle {
+    font-size: clamp(1.8rem, 7.8vw, 2.65rem);
+  }
+
+  .sectionHeading p {
+    font-size: 0.8rem;
+  }
+
+  .sectionLabel {
+    font-size: 0.64rem;
+  }
+
+  .viewAll {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: 0.57rem;
+    gap: 5px;
+  }
+
+  .featuredRail {
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+    gap: 6px;
+  }
+
+  .railArrow {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .featuredTrack {
+    grid-auto-columns: minmax(138px, 44%);
+    gap: 11px;
+    padding-bottom: 10px;
+  }
+
+  .featuredCard {
+    padding: 10px 9px 12px;
+    border-radius: 15px;
+  }
+
+  .menuItem h3 {
+    font-size: 0.78rem;
+  }
+
+  .eggNote {
+    font-size: 0.66rem;
+  }
+
+  .itemVisual {
+    margin-bottom: 10px;
+  }
+
+  .itemsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 10px;
+  }
+
+  .gridCard {
+    padding: 12px 9px 13px;
+    border-radius: 15px;
+  }
+
+  .gridCard .itemVisual {
+    max-width: 150px;
+  }
+
+  .gridCard .placeholderText {
+    font-size: 0.52rem;
+  }
+
+  .compactSection {
+    padding: 35px 0;
+  }
+
+  .compactItemsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .compactItemsGrid .gridCard {
+    padding: 14px 9px;
+  }
+
+  .compactItemsGrid .menuItem h3 {
+    font-size: 0.76rem;
+  }
+
+  .wrapSection {
+    padding: 25px 0 38px;
+  }
+
+  .crunchyBanner {
+    grid-template-columns: 1fr 0.8fr;
+    min-height: 220px;
+    padding: 23px 17px;
+    border-radius: 16px;
+  }
+
+  .bannerEyebrow {
+    font-size: 0.54rem;
+  }
+
+  .bannerCopy h2 {
+    font-size: clamp(2.1rem, 8vw, 3.2rem);
+  }
+
+  .bannerCopy p {
+    font-size: 0.72rem;
+  }
+
+  .lightButton {
+    min-height: 33px;
+    padding: 0 12px;
+    font-size: 0.55rem;
+  }
+
+  .bannerFood .foodPlaceholder {
+    border-width: 3px;
+  }
+
+  .bannerFood .placeholderText {
+    font-size: 0.52rem;
+  }
+
+  .bannerDoodle {
+    font-size: 2.5rem;
+  }
+
+  .bannerItems {
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .bannerItems > * {
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .finalCta {
+    padding: 48px 0;
+  }
+
+  .finalCtaInner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .finalCtaCopy .sectionTitle {
+    font-size: clamp(2rem, 9vw, 3.1rem);
+  }
+
+  .finalCtaCopy > p {
+    max-width: 350px;
+    margin: 12px auto 0;
+    font-size: 0.84rem;
+  }
+
+  .finalCtaFood {
+    width: 65%;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 420px) {
+  .categoryGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 6px;
+  }
+
+  .categoryImageWrap {
+    width: clamp(76px, 23vw, 100px);
+  }
+
+  .categoryName {
+    max-width: 100px;
+    font-size: 0.67rem;
+  }
+
+  .sectionHeading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .viewAll {
+    align-self: flex-start;
+  }
+
+  .featuredTrack {
+    grid-auto-columns: minmax(130px, 47%);
+  }
+
+  .crunchyBanner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .bannerCopy h2 {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .bannerFood {
+    position: absolute;
+    right: -23px;
+    bottom: -35px;
+    width: 48%;
+    opacity: 0.36;
+    pointer-events: none;
+  }
+
+  .bannerCopy {
+    z-index: 2;
+  }
+
+  .bannerItems .menuItem h3 {
+    font-size: 0.72rem;
+  }
+
+  .finalCtaFood {
+    width: 76%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuPage *,
+  .menuPage *::before,
+  .menuPage *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* =========================================================
+   ROLLS MANIA MENU — GLOBAL THEME OVERRIDES
+   Matches the updated About Us page theme
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ALL EYEBROWS, SECTION LABELS AND BANNER EYEBROWS
+   --------------------------------------------------------- */
+
+.menuPage .eyebrow,
+.menuPage .sectionLabel,
+.menuPage .bannerEyebrow {
+  color: rgb(155, 116, 113);
+  font-family: Lato-Heavy, sans-serif;
+}
+
+/* Override the previous hero eyebrow color */
+.menuPage .hero .eyebrow {
+  color: rgb(155, 116, 113);
+  font-family: Lato-Heavy, sans-serif;
+}
+
+/* ---------------------------------------------------------
+   ALL PARAGRAPHS
+   --------------------------------------------------------- */
+
+.menuPage p {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+/* ---------------------------------------------------------
+   ALL BUTTONS AND BUTTON-LIKE LINKS
+   --------------------------------------------------------- */
+
+.menuPage button,
+.menuPage .heroButton,
+.menuPage .lightButton,
+.menuPage .viewAll {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+/* ---------------------------------------------------------
+   UPDATED BRAND ACCENT COLORS
+   --------------------------------------------------------- */
+
+.menuPage .heroTitle .heroAccent,
+.menuPage .sectionTitle span {
+  color: #986868;
+}
+
+/* Primary CTA buttons */
+.menuPage .heroButton,
+.menuPage .viewAll {
+  background-color: #986868;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+/* CTA hover colors */
+.menuPage .heroButton:hover,
+.menuPage .viewAll:hover {
+  background-color: #986868;
+}
+
+/* Category number badges */
+.menuPage .categoryNumber {
+  background-color: #986868;
+}
+
+/* Category hover border */
+.menuPage .categoryButton:hover .categoryImageWrap,
+.menuPage .categoryButton:focus-visible .categoryImageWrap {
+  border-color: #986868;
+}
+
+/* Menu item card hover border */
+.menuPage .gridCard:hover {
+  border-color: rgba(152, 104, 104, 0.22);
+}
+
+/* Carousel arrow hover */
+.menuPage .railArrow:hover {
+  background-color: #986868;
+}
+
+/* Handwritten hero accent */
+.menuPage .handwritten {
+  color: #986868;
+}
+
+/* Section navigation arrow */
+.menuPage .hubArrow {
+  color: #986868;
+  border-color: rgba(152, 104, 104, 0.2);
+}
+
+/* Preserve button typography on small screens */
+@media (max-width: 767px) {
+  .menuPage .heroButton,
+  .menuPage .lightButton,
+  .menuPage .viewAll,
+  .menuPage button {
+    font-family: var(--font-poppins), sans-serif;
+  }
+}
+
+/* =========================================================
+   ROLLS MANIA MENU — TITLE TYPOGRAPHY & COLOR OVERRIDES
+   ========================================================= */
+
+/* All titles and headings */
+.menuPage h1,
+.menuPage h2,
+.menuPage h3,
+.menuPage h4,
+.menuPage h5,
+.menuPage h6,
+.menuPage .heroTitle,
+.menuPage .sectionTitle,
+.menuPage .menuItem h3,
+.menuPage .bannerCopy h2 {
+  font-family: PassionOne-Bold, sans-serif;
+}
+
+/* Replace black title colors with the brand green */
+.menuPage .heroTitle,
+.menuPage .sectionTitle,
+.menuPage .menuItem h3,
+.menuPage .bannerCopy h2 {
+  color: var(--rm-green);
+}
+
+/* Keep the existing rose accent color on highlighted title text */
+.menuPage .heroTitle .heroAccent,
+.menuPage .sectionTitle span {
+  color: #986868;
+}
+
+/* =========================================================
+   ROLLS MANIA MENU PAGE — BUTTON STYLING
+   Match the About Us page button design
+   ========================================================= */
+
+.menuPage {
+  --menu-button-brown: #986868;
+  --menu-button-mint: #78bdb2;
+  --menu-button-teal-dark: #087e79;
+  --menu-button-black: #111111;
+  --menu-button-white: #ffffff;
+}
+
+/* Shared styling for menu page buttons */
+.menuPage a[class*="Button"],
+.menuPage button[class*="Button"],
+.menuPage a[class*="button"],
+.menuPage button[class*="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 44px;
+  padding: 0 22px;
+
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  font-family: var(--rm-font-ui, "Poppins"), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Primary button — matching About Us brown CTA */
+.menuPage .heroButton {
+  background: var(--menu-button-brown);
+  border-color: var(--menu-button-brown);
+  color: var(--menu-button-white) !important;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.menuPage .heroButton:hover {
+  background: var(--menu-button-black);
+  border-color: var(--menu-button-black);
+  color: var(--menu-button-white) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+}
+
+/* Secondary button — matching About Us mint CTA */
+.menuPage .lightButton {
+  background: var(--menu-button-mint);
+  border-color: var(--menu-button-mint);
+  color: var(--menu-button-white) !important;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.menuPage .lightButton:hover {
+  background: var(--menu-button-teal-dark);
+  border-color: var(--menu-button-teal-dark);
+  color: var(--menu-button-white) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+}
+
+/* Apply the same rectangular shape to other CTA links */
+.menuPage a[class*="Button"]:hover,
+.menuPage button[class*="Button"]:hover,
+.menuPage a[class*="button"]:hover,
+.menuPage button[class*="button"]:hover {
+  border-radius: 5px;
+}
+
+/* Keep icons aligned with button text */
+.menuPage a[class*="Button"] svg,
+.menuPage button[class*="Button"] svg,
+.menuPage a[class*="button"] svg,
+.menuPage button[class*="button"] svg {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* Keyboard accessibility */
+.menuPage a[class*="Button"]:focus-visible,
+.menuPage button[class*="Button"]:focus-visible,
+.menuPage a[class*="button"]:focus-visible,
+.menuPage button[class*="button"]:focus-visible {
+  outline: 2px solid var(--menu-button-teal-dark);
+  outline-offset: 4px;
+}
+
+/* Mobile button sizing */
+@media (max-width: 767px) {
+  .menuPage .heroButton,
+  .menuPage .lightButton {
+    min-height: 44px;
+    padding: 0 20px;
+    font-size: 0.72rem;
+  }
+}
+
+/* =========================================================
+   EXCLUSIVE CRUNCHY WRAPS — CUSTOM BACKGROUND & FOOD IMAGE
+   ========================================================= */
+
+.menuPage .crunchyBanner {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+
+  width: 100vw;
+  max-width: none;
+
+  /* Increased height for the complete banner content */
+  min-height: 520px;
+  padding: 55px max(42px, calc((100vw - 1190px) / 2));
+
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  border-radius: 0;
+
+  background-color: transparent !important;
+  background-image: url("/assets/rolls-mania/menu_page/crunchy-wrap-bg.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+
+  color: #fff;
+}
+
+/* Food image */
+.menuPage .bannerFood {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 410px;
+}
+
+.menuPage .bannerFoodImage {
+  display: block;
+  width: auto;
+  height: clamp(340px, 36vw, 470px);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Keep the heading and CTA above the background */
+.bannerCopy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  max-width: 440px;
+}
+
+/* Match the background artwork's warm brown palette */
+.bannerEyebrow {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
+.menuPage .bannerEyebrow {
+  color: #ffffff !important;
+  opacity: 1;
+  font-family: Lato-Heavy, sans-serif;
+}
+
+.bannerCopy h2 {
+  max-width: 440px;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 4.3vw, 4.5rem);
+  line-height: 0.91;
+  overflow-wrap: anywhere;
+}
+
+.bannerCopy p {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 380px;
+}
+
+/* Right-side transparent food image */
+.bannerFood {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 310px;
+}
+
+/* Actual uploaded Rolls Mania food asset */
+
+.menuPage .bannerFoodImage {
+  display: block;
+  width: 100%;
+  height: clamp(280px, 32vw, 420px);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 14px 16px rgba(35, 12, 10, 0.18));
+  animation: crunchyWrapFloat 5s ease-in-out infinite;
+}
+
+.bannerDoodle {
+  z-index: 2;
+  top: 2%;
+  right: 2%;
+  pointer-events: none;
+}
+
+/* Gentle food-image movement */
+@keyframes crunchyWrapFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .crunchyBanner {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    min-height: 340px;
+    padding: 30px 28px;
+  }
+
+  .bannerCopy h2 {
+    font-size: clamp(2.3rem, 5vw, 3.5rem);
+  }
+
+  .bannerFood {
+    min-height: 270px;
+  }
+
+  .bannerFoodImage {
+    height: clamp(250px, 36vw, 340px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .menuPage .crunchyBanner {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    min-height: auto;
+    padding: 38px 22px 20px;
+    border-radius: 0;
+
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .bannerCopy {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .bannerCopy h2 {
+    max-width: 100%;
+    margin: 12px 0;
+    font-size: clamp(2.6rem, 10vw, 4rem);
+    line-height: 0.94;
+  }
+
+  .bannerCopy p {
+    max-width: 100%;
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  .bannerFood {
+    min-height: 0;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .bannerFoodImage {
+    width: auto;
+    height: clamp(240px, 75vw, 350px);
+    max-width: 100%;
+  }
+
+  .bannerDoodle {
+    top: 0;
+    right: 4%;
+    font-size: 2.5rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .crunchyBanner {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .bannerCopy h2 {
+    font-size: 2.35rem;
+  }
+
+  .bannerFoodImage {
+    height: 235px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .bannerFoodImage {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   CRUNCHY WRAPS BANNER — FINAL ALIGNMENT FIX
+   ========================================================= */
+
+.menuPage .wrapSection {
+  width: 100%;
+  padding: 45px 0 55px;
+  overflow: hidden;
+}
+
+/* Full-width background with increased height */
+.menuPage .crunchyBanner {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 35px;
+
+  width: 100vw;
+  max-width: none;
+  min-height: 650px;
+
+  margin-left: calc(50% - 50vw);
+  padding: 75px max(42px, calc((100vw - 1190px) / 2));
+
+  overflow: hidden;
+  border-radius: 0;
+
+  background-color: transparent !important;
+  background-image: url("/assets/rolls-mania/menu_page/crunchy-wrap-bg.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: 100% 100% !important;
+}
+
+/* Left content aligned to the shared content container */
+.menuPage .bannerCopy {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 480px;
+  justify-self: start;
+  align-self: center;
+}
+
+.menuPage .bannerEyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #fff !important;
+  font-family: Lato-Heavy, sans-serif;
+}
+
+.menuPage .bannerCopy h2 {
+  max-width: 450px;
+  margin: 10px 0 18px;
+
+  color: #fff !important;
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: clamp(3.5rem, 5.2vw, 5.3rem);
+  line-height: 0.95;
+  overflow-wrap: normal;
+}
+
+.menuPage .bannerCopy p {
+  max-width: 390px;
+  color: #fff;
+  font-family: var(--font-roboto), sans-serif;
+  line-height: 1.6;
+}
+
+/* Right-side food image */
+.menuPage .bannerFood {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 480px;
+  margin: 0;
+}
+
+.menuPage .bannerFoodImage {
+  display: block;
+
+  width: 100%;
+  height: clamp(400px, 39vw, 520px);
+  max-width: 590px;
+
+  object-fit: contain;
+  object-position: center;
+
+  filter: drop-shadow(0 14px 18px rgba(35, 12, 10, 0.15));
+  animation: crunchyWrapFloat 5s ease-in-out infinite;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .menuPage .crunchyBanner {
+    min-height: 560px;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 20px;
+    padding: 55px 35px;
+  }
+
+  .menuPage .bannerCopy h2 {
+    font-size: clamp(3rem, 5.8vw, 4.4rem);
+  }
+
+  .menuPage .bannerFood {
+    min-height: 390px;
+  }
+
+  .menuPage .bannerFoodImage {
+    height: clamp(330px, 42vw, 420px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .menuPage .wrapSection {
+    padding: 25px 0 38px;
+  }
+
+  .menuPage .crunchyBanner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+
+    min-height: 0;
+    padding: 55px 24px 30px;
+
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+  }
+
+  .menuPage .bannerCopy {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .menuPage .bannerCopy h2 {
+    max-width: 100%;
+    font-size: clamp(3rem, 10vw, 4.2rem);
+    line-height: 0.96;
+  }
+
+  .menuPage .bannerCopy p {
+    max-width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .menuPage .bannerFood {
+    min-height: 0;
+    margin-top: 10px;
+  }
+
+  .menuPage .bannerFoodImage {
+    width: auto;
+    height: clamp(280px, 78vw, 390px);
+    max-width: 100%;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .menuPage .crunchyBanner {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .menuPage .bannerCopy h2 {
+    font-size: 2.8rem;
+  }
+}
+
+/* FINAL FIX — Exclusive Crunchy Wraps content alignment */
+.menuPage .crunchyBanner {
+  grid-template-columns: 0.9fr 1.1fr;
+  column-gap: 20px;
+}
+
+.menuPage .bannerCopy {
+  width: 100%;
+  max-width: 480px;
+  margin: 0;
+  justify-self: start;
+  align-self: center;
+  text-align: left;
+  transform: translateX(12px);
+}
+
+.menuPage .bannerEyebrow {
+  display: block;
+  text-align: left;
+  margin: 0 0 12px;
+}
+
+.menuPage .bannerCopy h2 {
+  max-width: 450px;
+  margin: 10px 0 18px;
+  text-align: left;
+}
+
+.menuPage .bannerCopy p {
+  max-width: 390px;
+  margin: 0;
+  text-align: left;
+}
+
+.menuPage .bannerCopy .lightButton {
+  margin-left: 0;
+}
+
+/* Responsive alignment */
+@media (max-width: 767px) {
+  .menuPage .crunchyBanner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .menuPage .bannerCopy {
+    max-width: 100%;
+    transform: none;
+    text-align: left;
+  }
+
+  .menuPage .bannerCopy h2,
+  .menuPage .bannerCopy p,
+  .menuPage .bannerEyebrow {
+    text-align: left;
+  }
+}

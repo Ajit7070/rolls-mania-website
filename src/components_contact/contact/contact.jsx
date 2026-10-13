@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   FiPhoneCall,
   FiMail,
@@ -15,6 +16,7 @@ import {
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import styles from "./contact.module.css";
+gsap.registerPlugin(ScrollTrigger);
 
 const contactItems = [
   {
@@ -97,7 +99,11 @@ export default function ContactPage() {
             );
 
           gsap.from(".contactFormCard", {
-            scrollTrigger: undefined,
+            scrollTrigger: {
+              trigger: ".contactFormCard",
+              start: "top 75%",
+              once: true,
+            },
             opacity: 0,
             y: 35,
             duration: 0.8,

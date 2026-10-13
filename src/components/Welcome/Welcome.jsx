@@ -4,8 +4,10 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Welcome.module.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Welcome() {
   const sectionRef = useRef(null);
@@ -16,9 +18,19 @@ export default function Welcome() {
          ENTRANCE ANIMATION
          ========================================= */
 
+      // const tl = gsap.timeline({
+      //   defaults: {
+      //     ease: "power3.out",
+      //   },
+      // });
       const tl = gsap.timeline({
         defaults: {
           ease: "power3.out",
+        },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
         },
       });
 

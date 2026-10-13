@@ -471,3 +471,160 @@
     transition: none;
   }
 }
+
+/* =========================================================
+   YOUTUBE VIDEO POPUP
+   ========================================================= */
+
+.videoSection .playButton {
+  border: none;
+  background: transparent;
+  font: inherit;
+}
+
+/* Dark overlay covering the screen */
+
+.videoModal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(0, 0, 0, 0.88);
+
+  animation: videoModalFadeIn 0.25s ease;
+}
+
+/* Responsive video container */
+
+.videoModalContent {
+  position: relative;
+
+  width: min(100%, 1000px);
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #000;
+  border-radius: 8px;
+
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+
+  animation: videoModalZoomIn 0.3s ease;
+}
+
+.videoModalContent iframe {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+/* Close button */
+
+.closeButton {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+
+  font-family: Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.closeButton:hover {
+  background: #e40018;
+  transform: rotate(90deg);
+}
+
+/* Popup animations */
+
+@keyframes videoModalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes videoModalZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile popup */
+
+@media (max-width: 767px) {
+  .videoModal {
+    padding: 16px;
+  }
+
+  .videoModalContent {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .closeButton {
+    top: 14px;
+    right: 14px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 30px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .videoModal,
+  .videoModalContent {
+    animation: none;
+  }
+
+  .closeButton {
+    transition: none;
+  }
+}

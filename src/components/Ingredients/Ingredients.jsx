@@ -3,8 +3,10 @@
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./Ingredients.module.css";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Ingredients() {
   const sectionRef = useRef(null);
@@ -18,6 +20,11 @@ export default function Ingredients() {
       const tl = gsap.timeline({
         defaults: {
           ease: "power3.out",
+        },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
         },
       });
 

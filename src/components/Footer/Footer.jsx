@@ -3,8 +3,10 @@
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./Footer.module.css";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -14,6 +16,11 @@ export default function Footer() {
       const tl = gsap.timeline({
         defaults: {
           ease: "power3.out",
+        },
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 75%",
+          once: true,
         },
       });
 

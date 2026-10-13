@@ -4,9 +4,10 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./Menu.module.css";
-
+gsap.registerPlugin(ScrollTrigger);
 const menuItems = [
   {
     title: "Roll",
@@ -52,6 +53,11 @@ export default function Menu() {
       const tl = gsap.timeline({
         defaults: {
           ease: "power3.out",
+        },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
         },
       });
 

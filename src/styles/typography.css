@@ -1,18 +1,18 @@
 /* =========================================
-   ROLLS MANIA
-   GLOBAL TYPOGRAPHY SYSTEM
-   ========================================= */
+      ROLLS MANIA
+      GLOBAL TYPOGRAPHY SYSTEM
+      ========================================= */
 
 /* =========================================
-   CUSTOM FONT FILES
-   ========================================= */
+      CUSTOM FONT FILES
+      ========================================= */
 
 /*
-   HERO MAIN TITLE
-   Passion One Bold
-   File:
-   public/fonts/PassionOne-Bold.otf
-*/
+      HERO MAIN TITLE
+      Passion One Bold
+      File:
+      public/fonts/PassionOne-Bold.otf
+   */
 
 @font-face {
   font-family: "PassionOne-Bold";
@@ -23,11 +23,11 @@
 }
 
 /*
-   COMMON TITLES
-   Lato Heavy
-   File:
-   public/fonts/Lato-Heavy.ttf
-*/
+      COMMON TITLES
+      Lato Heavy
+      File:
+      public/fonts/Lato-Heavy.ttf
+   */
 
 @font-face {
   font-family: "Lato-Heavy";
@@ -38,41 +38,41 @@
 }
 
 /* =========================================
-   FONT VARIABLES
-   ========================================= */
+      FONT VARIABLES
+      ========================================= */
 
 :root {
   /* -----------------------------------------
-     HERO MAIN TITLE
-     Passion One Bold
-     ----------------------------------------- */
+      HERO MAIN TITLE
+      Passion One Bold
+      ----------------------------------------- */
 
   --rm-font-display: "PassionOne-Bold", sans-serif;
 
   /* -----------------------------------------
-     COMMON TITLES
-     Lato Heavy
-     ----------------------------------------- */
+      COMMON TITLES
+      Lato Heavy
+      ----------------------------------------- */
 
   --rm-font-heading: "Lato-Heavy", sans-serif;
 
   /* -----------------------------------------
-     NORMAL BODY TEXT
-     Roboto
-     ----------------------------------------- */
+      NORMAL BODY TEXT
+      Roboto
+      ----------------------------------------- */
 
   --rm-font-body: var(--font-roboto), sans-serif;
 
   /* -----------------------------------------
-     HEADER + BUTTONS
-     Poppins
-     ----------------------------------------- */
+      HEADER + BUTTONS
+      Poppins
+      ----------------------------------------- */
 
   --rm-font-ui: var(--font-poppins), sans-serif;
 
   /* -----------------------------------------
-     FONT WEIGHTS
-     ----------------------------------------- */
+      FONT WEIGHTS
+      ----------------------------------------- */
 
   --rm-weight-regular: 400;
   --rm-weight-medium: 500;
@@ -82,9 +82,9 @@
 }
 
 /* =========================================
-   BODY
-   ROBOTO
-   ========================================= */
+      BODY
+      ROBOTO
+      ========================================= */
 
 body {
   font-family: var(--rm-font-body);
@@ -96,9 +96,9 @@ body {
 }
 
 /* =========================================
-   HERO DISPLAY
-   PASSION ONE BOLD
-   ========================================= */
+      HERO DISPLAY
+      PASSION ONE BOLD
+      ========================================= */
 
 .rm-display {
   font-family: var(--rm-font-display);
@@ -109,9 +109,9 @@ body {
 }
 
 /* =========================================
-   COMMON SECTION LABEL
-   LATO HEAVY
-   ========================================= */
+      COMMON SECTION LABEL
+      LATO HEAVY
+      ========================================= */
 
 .rm-section-label {
   font-family: var(--rm-font-heading);
@@ -123,9 +123,9 @@ body {
 }
 
 /* =========================================
-   COMMON SECTION TITLE
-   LATO HEAVY
-   ========================================= */
+      COMMON SECTION TITLE
+      LATO HEAVY
+      ========================================= */
 
 .rm-section-title {
   font-family: var(--rm-font-heading);
@@ -137,9 +137,9 @@ body {
 }
 
 /* =========================================
-   BODY TEXT
-   ROBOTO
-   ========================================= */
+      BODY TEXT
+      ROBOTO
+      ========================================= */
 
 .rm-body-text {
   font-family: var(--rm-font-body);
@@ -150,9 +150,9 @@ body {
 }
 
 /* =========================================
-   BUTTON TEXT
-   POPPINS
-   ========================================= */
+      BUTTON TEXT
+      POPPINS
+      ========================================= */
 
 .rm-button-text {
   font-family: var(--rm-font-ui);
@@ -164,9 +164,9 @@ body {
 }
 
 /* =========================================
-   NAVIGATION TEXT
-   POPPINS
-   ========================================= */
+      NAVIGATION TEXT
+      POPPINS
+      ========================================= */
 
 .rm-nav-text {
   font-family: var(--rm-font-ui);
@@ -178,8 +178,8 @@ body {
 }
 
 /* =========================================
-   RESPONSIVE
-   ========================================= */
+      RESPONSIVE
+      ========================================= */
 
 @media (max-width: 767px) {
   .rm-section-title {
