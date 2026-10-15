@@ -72,15 +72,15 @@ export default function Footer() {
   }, []);
 
   const navigation = [
-    "Home",
-    "About Us",
-    "Menu",
-    "Open Your RM",
-    "Blogs",
-    "FAQ",
-    "Contact",
-    "Careers",
-    "Testimonials",
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/AboutUs" },
+    { label: "Menu", href: "/MenuPage" },
+    { label: "Open Your RM", href: "/OpenYourRM" },
+    { label: "Blogs", href: "#Blogs" },
+    { label: "FAQ", href: "/Faq" },
+    { label: "Contact", href: "/contact" },
+    { label: "Careers", href: "#Careers" },
+    { label: "Testimonials", href: "#Testimonials" },
   ];
 
   return (
@@ -136,7 +136,7 @@ export default function Footer() {
             {/* ORDER BUTTON */}
 
             <div className={`${styles.orderWrapper} footerOrder`}>
-              <a href="#menu" className={styles.orderButton}>
+              <a href="MenuPage" className={styles.orderButton}>
                 <span>ORDER NOW</span>
 
                 <span className={styles.buttonArrow}>
@@ -153,19 +153,11 @@ export default function Footer() {
           <nav className={styles.navigation} aria-label="Footer navigation">
             {navigation.map((item) => (
               <a
-                key={item}
-                href={
-                  item === "Home"
-                    ? "#home"
-                    : `#${item
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")
-                        .replace("about-us", "about")
-                        .replace("open-your-rm", "open-your-rm")}`
-                }
+                key={item.label}
+                href={item.href}
                 className={`${styles.navItem} footerNavItem`}
               >
-                {item}
+                {item.label}
               </a>
             ))}
           </nav>
@@ -181,9 +173,21 @@ export default function Footer() {
               ================================================= */}
 
           <div className={`${styles.bottomLinks} footerBottom`}>
-            <a href="#terms">Terms and Conditions</a>
+            <a
+              href="/assets/rolls-mania/store_locator/documents/Term-and-condition.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms and Conditions
+            </a>
 
-            <a href="#privacy">Privacy Policy</a>
+            <a
+              href="/assets/rolls-mania/store_locator/documents/Privacy-Policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>
           </div>
         </div>
       </div>
