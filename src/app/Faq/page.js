@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import Faq from "@/components_faq/Faq/Faq";
+import Testimonials from "@/components/Testimonials/Testimonials";
 
 export const metadata = {
   title: "FAQs | Rolls Mania",
@@ -15,6 +16,7 @@ export default function FaqPage() {
       <main>
         <Faq />
       </main>
+      <Testimonials />
       <Footer />
     </>
   );

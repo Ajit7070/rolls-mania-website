@@ -353,7 +353,7 @@
   width: 100%;
 
   height: auto;
-
+  transform: rotate(20deg);
   object-fit: contain;
 }
 

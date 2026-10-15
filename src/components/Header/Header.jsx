@@ -24,7 +24,7 @@ const navItems = [
   },
   {
     label: "Store Locator",
-    href: "#store-locator",
+    href: "StoreLocator",
   },
   {
     label: "Contact Us",
@@ -51,7 +51,7 @@ export default function Header() {
             onClick={closeMenu}
           >
             <Image
-              src="/assets/rolls-mania/logo/logo-horizontal.png?v=2"
+              src="/assets/rolls-mania/logo/rollsmania-header-logo.png?v=2"
               alt="Rolls Mania"
               width={420}
               height={120}

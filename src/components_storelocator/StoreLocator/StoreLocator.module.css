@@ -1,0 +1,1137 @@
+.storePage {
+  --sl-rose: rgb(155, 116, 113);
+  --sl-rose-light: rgb(201, 170, 163);
+  --sl-green: rgb(49, 93, 88);
+  --sl-green-light: var(--rm-green, #a6d8cf);
+  width: 100%;
+  overflow: clip;
+  background: var(--rm-white, #fff);
+  color: var(--rm-dark, #151515);
+}
+
+.storePage * {
+  box-sizing: border-box;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 540px;
+  overflow: hidden;
+  background-image: url("/assets/rolls-mania/store_locator/storelocator-hero-bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Remove the old dotted overlay */
+.heroTexture {
+  display: none;
+}
+
+/* Main two-column layout */
+.heroInner {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+/* LEFT CONTENT */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+/* RIGHT FOOD IMAGE */
+.heroFoodMotion {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+
+  animation: heroFoodFloat 4.5s ease-in-out infinite;
+}
+
+.heroFoodImage {
+  display: block;
+  width: 115%;
+  max-width: 680px;
+  height: auto;
+
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+
+  transform: translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0);
+
+  transition: transform 0.22s ease-out;
+
+  filter: drop-shadow(0 18px 22px rgba(0, 55, 49, 0.13));
+}
+/* Floating animation */
+@keyframes heroFoodFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .heroFoodMotion {
+    animation: none;
+  }
+
+  .heroFoodImage {
+    transition: none;
+  }
+}
+
+.eyebrow,
+.sectionLabel {
+  display: inline-block;
+  color: var(--sl-rose);
+  font-family: Lato-Heavy, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 20px 0 18px;
+  color: #fff;
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: clamp(4.4rem, 9vw, 8rem);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.heroTitle span {
+  display: block;
+  margin-top: 9px;
+  color: var(--sl-green);
+}
+
+.heroDescription {
+  max-width: 520px;
+  margin: 22px 0 28px;
+  color: #244440;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.heroButton,
+.locationButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--sl-rose-light);
+  color: #fff;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.heroButton:hover,
+.locationButton:hover:not(:disabled) {
+  background: var(--sl-rose);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.heroButton svg,
+.locationButton svg {
+  width: 17px;
+  height: 17px;
+}
+
+.heroStamp {
+  position: absolute;
+  right: 5%;
+  bottom: 38px;
+  display: grid;
+  width: 128px;
+  height: 128px;
+  place-content: center;
+  border: 2px dashed rgba(49, 93, 88, 0.55);
+  border-radius: 50%;
+  color: var(--sl-green);
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: 1.7rem;
+  line-height: 0.9;
+  text-align: center;
+  transform: rotate(10deg);
+}
+
+.locatorSection {
+  padding: 90px 0 105px;
+  background: var(--rm-white, #fff);
+}
+
+.locatorInner {
+  width: 100%;
+}
+
+.sectionHeading {
+  max-width: 650px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0 15px;
+  color: var(--rm-green, #a6d8cf);
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: clamp(3.1rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.sectionTitle span {
+  color: #986868;
+}
+
+.sectionHeading > p {
+  margin: 0;
+  color: var(--rm-dark, #151515);
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.locatorPanel {
+  overflow: hidden;
+  border: 1px solid rgba(21, 21, 21, 0.09);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 55px rgba(21, 21, 21, 0.07);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.35fr auto;
+  align-items: end;
+  gap: 14px;
+  padding: 24px;
+  border-bottom: 1px solid #ececea;
+  background: #fbf9f6;
+}
+
+.filterField {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.filterField > span {
+  color: var(--sl-green);
+  font-family: Lato-Heavy, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.filterField select,
+.searchBox {
+  width: 100%;
+  height: 47px;
+  min-width: 0;
+  border: 1px solid #e2ded9;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--rm-dark, #151515);
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.9rem;
+}
+
+.filterField select {
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.filterField select:focus,
+.searchBox:focus-within {
+  border-color: var(--sl-rose);
+  outline: 2px solid rgba(155, 116, 113, 0.13);
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+}
+
+.searchBox > svg {
+  flex: 0 0 auto;
+  color: var(--sl-rose);
+}
+
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--rm-dark, #151515);
+  font: inherit;
+}
+
+.resetButton {
+  min-height: 45px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--sl-rose);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.resetButton:hover {
+  color: var(--sl-green);
+  text-decoration: underline;
+}
+
+.mapToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.mapToolbar > div {
+  color: #666;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.9rem;
+}
+
+.resultCount {
+  color: var(--sl-green);
+  /* font-family: PassionOne-Bold, sans-serif; */
+  font-family: Lato-Heavy, sans-serif;
+  /* font-size: 1.5rem; */
+  font-size: 1.25rem;
+}
+
+.locationButton {
+  min-height: 40px;
+  padding: 0 16px;
+  background: var(--sl-green);
+  font-size: 0.7rem;
+}
+
+.locationButton:hover:not(:disabled) {
+  background: #087e79;
+}
+
+.locationButton:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.geoMessage {
+  margin: 0;
+  padding: 12px 24px;
+  background: #f1f8f5;
+  color: var(--sl-green);
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.88rem;
+}
+
+.resultsLayout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+  min-height: 590px;
+}
+
+.storeList {
+  max-height: 650px;
+  overflow-y: auto;
+  padding: 16px;
+  border-right: 1px solid #eee;
+  overscroll-behavior: contain;
+}
+
+.storeCard {
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1px solid #eae7e3;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.storeCard:last-child {
+  margin-bottom: 0;
+}
+
+.storeCard:hover,
+.storeCardActive {
+  border-color: var(--sl-rose);
+  box-shadow: 0 5px 18px rgba(155, 116, 113, 0.11);
+}
+
+.storeSelect {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 17px 14px 12px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.storeIcon {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e5f4f0;
+  color: var(--sl-green);
+}
+
+.storeIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.storeInfo {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.storeInfo strong {
+  color: var(--rm-dark, #151515);
+  /* font-family: PassionOne-Bold, sans-serif; */
+  font-family: Lato-Heavy, sans-serif;
+  /* font-size: 1.45rem; */
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.storeCity {
+  color: var(--sl-rose);
+  font-family: Lato-Heavy, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.storeAddress {
+  color: #666;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.cardArrow {
+  flex: 0 0 auto;
+  margin-top: 5px;
+  color: var(--sl-rose);
+}
+
+.storeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding: 0 14px 15px 64px;
+}
+
+.storeActions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sl-green);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.storeActions a:hover {
+  color: var(--sl-rose);
+}
+
+.storeActions svg {
+  width: 14px;
+  height: 14px;
+}
+
+.mapWrapper {
+  position: relative;
+  min-width: 0;
+  min-height: 590px;
+  background: #edf1ee;
+}
+
+.mapPlaceholder,
+.emptyState {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 25px;
+  color: var(--sl-green);
+  text-align: center;
+}
+
+.mapPlaceholder > svg,
+.emptyState > svg {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
+  color: var(--sl-rose);
+}
+
+.mapPlaceholder h3,
+.emptyState h3 {
+  margin: 0 0 8px;
+  color: var(--rm-dark, #151515);
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: 2rem;
+}
+
+.mapPlaceholder p,
+.emptyState p {
+  max-width: 320px;
+  color: #666;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.emptyState {
+  min-height: 280px;
+}
+
+.emptyState button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--sl-green);
+  color: #fff;
+  font-family: var(--font-poppins), sans-serif;
+  cursor: pointer;
+}
+
+.mapInfo {
+  max-width: 240px;
+  padding: 4px;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+.mapInfo strong {
+  display: block;
+  font-size: 14px;
+}
+
+.mapInfo p {
+  margin: 7px 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.mapInfo a {
+  color: #087e79;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resetButton {
+    justify-self: start;
+  }
+
+  .resultsLayout {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    background-position: center;
+  }
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+
+    padding-top: 65px;
+    padding-bottom: 20px;
+  }
+
+  .heroContent {
+    width: 100%;
+  }
+
+  .heroTitle {
+    font-size: clamp(3.5rem, 13vw, 6rem);
+  }
+
+  .heroDescription {
+    max-width: 95%;
+    font-size: 0.93rem;
+  }
+  .heroFoodMotion {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .heroFoodImage {
+    width: min(110%, 520px);
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .heroStamp {
+    right: 5%;
+    bottom: 22px;
+    width: 82px;
+    height: 82px;
+    font-size: 1.15rem;
+  }
+
+  .locatorSection {
+    padding: 62px 0 70px;
+  }
+
+  .sectionHeading {
+    margin-bottom: 27px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .resetButton {
+    justify-self: start;
+  }
+
+  .mapToolbar {
+    align-items: flex-start;
+    padding: 16px 18px;
+  }
+
+  .locationButton {
+    gap: 6px;
+    padding: 0 10px;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .resultsLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .storeList {
+    order: 2;
+    max-height: 470px;
+    border-top: 1px solid #eee;
+    border-right: 0;
+  }
+
+  .mapWrapper {
+    order: 1;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 420px) {
+  .heroStamp {
+    display: none;
+  }
+
+  .mapToolbar {
+    flex-direction: column;
+  }
+
+  .storeSelect {
+    gap: 9px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .storeActions {
+    padding-left: 57px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton,
+  .locationButton,
+  .storeCard {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   TEMPORARY TEST — STORE LOCATOR MOBILE ALIGNMENT
+   Remove after testing
+========================================== */
+
+@media screen and (max-width: 767px) {
+  .heroInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    padding: 40px 20px 20px !important;
+
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .heroContent {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .eyebrow {
+    display: block !important;
+    max-width: 100% !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.045em !important;
+  }
+
+  .heroTitle {
+    width: 100% !important;
+    margin: 18px 0 !important;
+    font-size: clamp(2.8rem, 10.8vw, 4.3rem) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.02em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .heroTitle span {
+    display: block !important;
+    margin-top: 5px !important;
+  }
+
+  .heroDescription {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 18px 0 24px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .heroButton {
+    margin: 0 !important;
+  }
+
+  .heroFoodMotion {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    justify-content: center !important;
+  }
+
+  .heroFoodImage {
+    display: block !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    height: auto !important;
+    margin-inline: auto !important;
+  }
+
+  .heroStamp {
+    display: none !important;
+  }
+}
+
+/* Extra-small mobile */
+@media screen and (max-width: 420px) {
+  .heroInner {
+    padding: 34px 16px 16px !important;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.7rem, 10.5vw, 3.4rem) !important;
+  }
+
+  .eyebrow {
+    font-size: 0.61rem !important;
+    letter-spacing: 0.035em !important;
+  }
+
+  .heroDescription {
+    font-size: 0.88rem !important;
+  }
+
+  .heroFoodImage {
+    max-width: 360px !important;
+  }
+}
+
+/* ==========================================
+   TEMPORARY TEST — TABLET / SMALL LAPTOP
+   Targets 768px to 1100px only
+========================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .hero {
+    min-height: 500px !important;
+  }
+
+  .heroInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) !important;
+    align-items: center !important;
+    gap: 18px !important;
+
+    padding: 40px 24px !important;
+  }
+
+  .heroContent {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .eyebrow {
+    max-width: 100% !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.045em !important;
+  }
+
+  .heroTitle {
+    margin: 18px 0 !important;
+    font-size: clamp(3.5rem, 6.5vw, 5.3rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .heroTitle span {
+    margin-top: 6px !important;
+  }
+
+  .heroDescription {
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 18px 0 24px !important;
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .heroFoodMotion {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .heroFoodImage {
+    display: block !important;
+    width: 100% !important;
+    max-width: 460px !important;
+    height: auto !important;
+    margin-inline: auto !important;
+  }
+
+  .heroStamp {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   TEMPORARY TEST — STORE LOCATOR BELOW HERO
+========================================== */
+
+/* Tablet and small laptop */
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .locatorSection {
+    padding: 65px 0 75px !important;
+  }
+
+  .locatorInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 24px !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .sectionHeading {
+    max-width: 620px !important;
+    margin: 0 auto 30px !important;
+    padding-inline: 10px !important;
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    padding: 20px !important;
+  }
+
+  .resultsLayout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+    min-width: 0 !important;
+  }
+
+  .storeList,
+  .mapWrapper {
+    min-width: 0 !important;
+  }
+
+  .storeList {
+    padding: 12px !important;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .locatorSection {
+    padding: 48px 0 55px !important;
+  }
+
+  .locatorInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: 16px !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .sectionHeading {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 24px !important;
+    padding-inline: 0 !important;
+    text-align: center !important;
+  }
+
+  .sectionTitle {
+    font-size: clamp(2.7rem, 10vw, 4rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  .sectionHeading > p {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .locatorPanel {
+    width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 10px !important;
+  }
+
+  .filters {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+    padding: 16px !important;
+  }
+
+  .filterField,
+  .searchBox {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .mapToolbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: 16px !important;
+  }
+
+  .locationButton {
+    align-self: flex-start !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .resultsLayout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-width: 0 !important;
+  }
+
+  .storeList,
+  .mapWrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .mapWrapper {
+    min-height: 320px !important;
+  }
+
+  .storeList {
+    max-height: 450px !important;
+    padding: 12px !important;
+    border-right: 0 !important;
+    border-top: 1px solid #eee !important;
+  }
+
+  .storeSelect {
+    min-width: 0 !important;
+  }
+
+  .storeInfo {
+    min-width: 0 !important;
+  }
+
+  .storeAddress {
+    overflow-wrap: anywhere !important;
+  }
+
+  .storeActions {
+    padding-left: 58px !important;
+  }
+}
+
+/* =========================================
+   NUTRITION & ALLERGEN INFORMATION BUTTONS
+========================================= */
+
+.documentSection {
+  position: relative;
+  z-index: 0;
+  margin-top: -18px;
+  padding: 68px 0 18px;
+  background: #fff;
+}
+
+.documentInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.documentButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 230px;
+  min-height: 46px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 5px;
+  background: rgb(49, 93, 88);
+  color: #fff;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.documentButton:hover {
+  background: #986868;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.documentButton svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .documentSection {
+    padding-top: 58px;
+  }
+
+  .documentInner {
+    justify-content: center;
+    gap: 20px;
+    padding-inline: 24px;
+  }
+
+  .documentButton {
+    min-width: 220px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .documentSection {
+    margin-top: -12px;
+    padding: 42px 16px 12px;
+  }
+
+  .documentInner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 0;
+  }
+
+  .documentButton {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    box-sizing: border-box;
+    font-size: 0.88rem;
+  }
+}

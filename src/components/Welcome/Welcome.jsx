@@ -292,7 +292,7 @@ export default function Welcome() {
               </p>
             </div>
 
-            <Link href="#about" className={`${styles.button} welcomeButton`}>
+            <Link href="/AboutUs" className={`${styles.button} welcomeButton`}>
               <span>MORE ABOUT US</span>
               <span className={styles.arrow}>›</span>
             </Link>

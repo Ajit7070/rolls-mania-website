@@ -40,7 +40,8 @@
 
 .logoImage {
   /* width: 310px; */
-  width: 200px;
+  /* width: 200px; */
+  width: 130px;
   height: auto;
 
   object-fit: contain;

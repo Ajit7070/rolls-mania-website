@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
@@ -10,6 +10,7 @@ import {
   FiArrowRight,
   FiChevronLeft,
   FiChevronRight,
+  FiX,
 } from "react-icons/fi";
 
 import styles from "./MenuPage.module.css";
@@ -360,14 +361,43 @@ function FoodPlaceholder({ name, className = "" }) {
   );
 }
 
+const menuItemImages = {
+  "Iced Tea (Peach / Lemon)":
+    "/assets/rolls-mania/menu_page/brew/lemon-iced-tea.jpg",
+
+  "Cold Coffee": "/assets/rolls-mania/menu_page/brew/cold-coffee.jpg",
+
+  "Blue Lagoon": "/assets/rolls-mania/menu_page/brew/blue-lagoon.jpg",
+
+  "Mint Mojito": "/assets/rolls-mania/menu_page/brew/mint-mojito.jpg",
+
+  "Strawberry Frappe":
+    "/assets/rolls-mania/menu_page/brew/strawberry-frappe.jpg",
+};
+
 function MenuItem({ item, index }) {
   const [name, availableWithEgg] = item;
+  const imageSrc = menuItemImages[name];
+
   return (
     <article className={styles.menuItem} key={`${name}-${index}`}>
       <div className={styles.itemVisual}>
-        <FoodPlaceholder name={`Food image: ${name}`} />
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={600}
+            height={600}
+            className={styles.menuItemPhoto}
+            unoptimized
+          />
+        ) : (
+          <FoodPlaceholder name={`Food image: ${name}`} />
+        )}
       </div>
+
       <h3>{name}</h3>
+
       {availableWithEgg && <p className={styles.eggNote}>Available with egg</p>}
     </article>
   );
@@ -375,6 +405,7 @@ function MenuItem({ item, index }) {
 
 export default function Menu() {
   const menuRef = useRef(null);
+  const [activeCategory, setActiveCategory] = useState(null);
 
   useLayoutEffect(() => {
     const root = menuRef.current;
@@ -432,6 +463,60 @@ export default function Menu() {
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  // Crunchy Wraps keeps its original scroll functionality.
+  // const handleCategoryClick = (category) => {
+
+  //   if (category.id === "crunchy-wraps") {
+  //     setActiveCategory(null);
+  //     scrollToSection("crunchy-wraps");
+  //     return;
+  //   }
+
+  // Find the matching menu section and open its items in a popup.
+  //   const selectedSection = sections.find(
+  //     (section) => section.id === category.id
+  //   );
+
+  //   if (selectedSection) {
+  //     setActiveCategory(selectedSection);
+  //   }
+  // };
+
+  const handleCategoryClick = (category) => {
+    const selectedSection = sections.find(
+      (section) => section.id === category.id
+    );
+
+    if (selectedSection) {
+      setActiveCategory(selectedSection);
+    }
+  };
+
+  const closeCategoryPopup = () => {
+    setActiveCategory(null);
+  };
+
+  // Lock background scrolling and support the Escape key.
+  useEffect(() => {
+    if (!activeCategory) return;
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeCategoryPopup();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [activeCategory]);
 
   return (
     <main ref={menuRef} className={styles.menuPage}>
@@ -508,22 +593,42 @@ export default function Menu() {
 
           <nav className={styles.categoryGrid} aria-label="Menu categories">
             {menuCategories.map((category, index) => (
+              // <button
+              //   className={styles.categoryButton}
+              //   key={category.id}
+              //   type="button"
+              //   onClick={() => scrollToSection(category.id)}
+              //   aria-label={`Jump to ${category.label}`}
+              // >
               <button
                 className={styles.categoryButton}
                 key={category.id}
                 type="button"
-                onClick={() => scrollToSection(category.id)}
-                aria-label={`Jump to ${category.label}`}
+                onClick={() => handleCategoryClick(category)}
+                aria-label={`Open ${category.label} menu`}
               >
                 <span className={styles.categoryImageWrap}>
-                  <FoodPlaceholder
-                    name={category.alt}
-                    className={styles.categoryImage}
-                  />
+                  {category.id === "brew" ? (
+                    <Image
+                      src="/assets/rolls-mania/menu_page/brew/brew-category.jpg"
+                      alt="Rolls Mania drinks collection"
+                      width={500}
+                      height={375}
+                      className={styles.categoryPhoto}
+                      unoptimized
+                    />
+                  ) : (
+                    <FoodPlaceholder
+                      name={category.alt}
+                      className={styles.categoryImage}
+                    />
+                  )}
+
                   <span className={styles.categoryNumber}>
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </span>
+
                 <span className={styles.categoryName}>{category.short}</span>
               </button>
             ))}
@@ -534,8 +639,62 @@ export default function Menu() {
         </div>
       </section>
 
+      {/* CATEGORY MENU POPUP */}
+      {/* {activeCategory && activeCategory.id !== "crunchy-wraps" && ( */}
+      {activeCategory && (
+        <div className={styles.menuModalOverlay} onClick={closeCategoryPopup}>
+          <div
+            className={styles.menuModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="category-modal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* Popup header */}
+            <div className={styles.menuModalHeader}>
+              <div>
+                <span className={styles.menuModalEyebrow}>
+                  FIND YOUR FAVOURITE
+                </span>
+
+                <h2 id="category-modal-title" className={styles.menuModalTitle}>
+                  {activeCategory.title}
+                </h2>
+
+                <p className={styles.menuModalSubtitle}>
+                  {activeCategory.subtitle}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                className={styles.menuModalClose}
+                onClick={closeCategoryPopup}
+                aria-label="Close category menu"
+              >
+                <FiX aria-hidden="true" />
+              </button>
+            </div>
+
+            {/* Selected category menu items */}
+            <div className={styles.menuModalBody}>
+              <div className={styles.menuModalItems}>
+                {activeCategory.items.map((item, index) => (
+                  <div
+                    className={styles.menuModalItem}
+                    key={`${activeCategory.id}-${item[0]}`}
+                  >
+                    <MenuItem item={item} index={index} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* MENU SECTIONS */}
-      <div className={styles.menuSections}>
+      {/* <div className={styles.menuSections}>
         {sections.map((section, sectionIndex) => (
           <section
             id={section.id}
@@ -673,7 +832,7 @@ export default function Menu() {
             )}
           </section>
         ))}
-      </div>
+      </div> */}
 
       {/* FINAL CTA */}
       <section className={styles.finalCta} aria-labelledby="menu-cta-title">
@@ -693,8 +852,36 @@ export default function Menu() {
               ORDER YOUR FAVOURITE <FiArrowRight aria-hidden="true" />
             </Link>
           </div>
-          <div className={styles.finalCtaFood} data-menu-reveal>
-            <FoodPlaceholder name="Rolls Mania rolls and sides" />
+
+          <div
+            className={styles.finalCtaFood}
+            onMouseMove={(e) => {
+              if (
+                window.matchMedia("(hover: hover) and (pointer: fine)").matches
+              ) {
+                const rect = e.currentTarget.getBoundingClientRect();
+
+                const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+                const y =
+                  (e.clientY - rect.top - rect.height / 2) / rect.height;
+
+                e.currentTarget.style.setProperty("--mouse-x", `${x * 24}px`);
+                e.currentTarget.style.setProperty("--mouse-y", `${y * 24}px`);
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.setProperty("--mouse-x", "0px");
+              e.currentTarget.style.setProperty("--mouse-y", "0px");
+            }}
+          >
+            <Image
+              src="/assets/rolls-mania/menu_page/final-cta-food.png"
+              alt="Delicious Rolls Mania signature wraps"
+              width={1300}
+              height={1100}
+              unoptimized
+              className={styles.finalCtaFoodImage}
+            />
           </div>
         </div>
       </section>

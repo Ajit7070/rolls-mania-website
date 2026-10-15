@@ -326,15 +326,27 @@ export default function Faq() {
           BOTTOM CTA
           ========================================= */}
 
+      {/* =========================================
+    BOTTOM CTA
+    ========================================= */}
+
       <section className={styles.bottomCta}>
         <div className="rm-container">
           <div className={styles.bottomCtaInner}>
-            <div>
+            <div className={styles.bottomCtaContent}>
               <span className={styles.bottomCtaLabel}>
                 HUNGER DOESN&apos;T WAIT
               </span>
 
               <h2 className={styles.bottomCtaTitle}>READY TO ROLL?</h2>
+            </div>
+
+            <div className={styles.bottomCtaFood}>
+              <img
+                src="/assets/rolls-mania/faq/faq-cta-food.png"
+                alt="Rolls Mania delicious food collection"
+                className={styles.bottomCtaFoodImage}
+              />
             </div>
 
             <a href="/MenuPage" className={styles.bottomCtaButton}>

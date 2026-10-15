@@ -205,7 +205,7 @@ export default function Hero() {
                 <FiArrowRight />
               </Link>
 
-              <Link href="#store-locator" className={styles.secondaryButton}>
+              <Link href="/StoreLocator" className={styles.secondaryButton}>
                 <FiMapPin />
                 <span>FIND OUTLETS</span>
               </Link>

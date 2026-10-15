@@ -454,7 +454,7 @@ export default function ContactPage() {
                 </div> */}
 
                 <img
-                  src="/assets/rolls-mania/contact/contact-form-food.png"
+                  src="/assets/rolls-mania/contact/contact-form-food2.png"
                   alt="Crispy Rolls Mania snacks served in a yellow branded cup"
                   className={`${styles.foodPromoImage} contactFoodImage`}
                   draggable="false"

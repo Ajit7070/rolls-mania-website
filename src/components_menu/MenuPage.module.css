@@ -449,6 +449,34 @@
   outline-offset: 4px;
 }
 
+/* Brew category photo */
+.categoryPhoto {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Real drink photos inside menu cards */
+.menuPage .menuItemPhoto {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 0.92;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Ensure the drink photos fit popup cards */
+.menuPage .menuModalItem .itemVisual {
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto 13px;
+  overflow: hidden;
+}
+
 .hubArrow {
   display: grid;
   place-items: center;
@@ -1986,3 +2014,475 @@
     text-align: left;
   }
 }
+
+/* =========================================================
+   CATEGORY MENU POPUP
+   ========================================================= */
+
+.menuModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(20, 16, 15, 0.68);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  animation: menuModalFadeIn 0.22s ease both;
+}
+
+.menuModal {
+  position: relative;
+
+  width: min(100%, 1050px);
+  max-height: min(86vh, 900px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(152, 104, 104, 0.2);
+  border-radius: 18px;
+
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+
+  animation: menuModalSlideIn 0.28s ease both;
+}
+
+/* Popup heading */
+
+.menuModalHeader {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 28px 32px 22px;
+
+  border-bottom: 1px solid rgba(152, 104, 104, 0.16);
+
+  background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%);
+}
+
+.menuModalEyebrow {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #986868;
+  font-family: Lato-Heavy, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.menuModalTitle {
+  margin: 0;
+
+  color: #986868;
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.menuModalSubtitle {
+  margin: 9px 0 0;
+
+  color: #666;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.menuModalClose {
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: 1px solid rgba(152, 104, 104, 0.25);
+  border-radius: 50%;
+
+  background: #fff;
+  color: #986868;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.menuModalClose svg {
+  width: 21px;
+  height: 21px;
+}
+
+.menuModalClose:hover {
+  background: #986868;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* Scrollable menu items */
+
+.menuModalBody {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 26px 30px 30px;
+}
+
+.menuModalItems {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.menuModalItem {
+  min-width: 0;
+
+  padding: 16px 13px;
+
+  border: 1px solid rgba(152, 104, 104, 0.14);
+  border-radius: 14px;
+
+  background: #fff;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.035);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.menuModalItem:hover {
+  transform: translateY(-4px);
+  border-color: rgba(152, 104, 104, 0.4);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Existing MenuItem component inside the popup */
+
+.menuModalItem .itemVisual {
+  max-width: 180px;
+}
+
+.menuModalItem .foodPlaceholder {
+  aspect-ratio: 1 / 0.92;
+}
+
+.menuModalItem .menuItem h3 {
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.menuModalItem .eggNote {
+  font-size: 0.72rem;
+}
+
+/* Popup animations */
+
+@keyframes menuModalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuModalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .menuModal {
+    width: min(100%, 760px);
+  }
+
+  .menuModalItems {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .menuModalHeader {
+    padding: 24px 24px 20px;
+  }
+
+  .menuModalBody {
+    padding: 22px 24px 26px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .menuModalOverlay {
+    align-items: center;
+    padding: 12px;
+  }
+
+  .menuModal {
+    width: 100%;
+    max-height: 90dvh;
+    border-radius: 14px;
+  }
+
+  .menuModalHeader {
+    gap: 12px;
+    padding: 20px 16px 17px;
+  }
+
+  .menuModalTitle {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .menuModalSubtitle {
+    max-width: 270px;
+    font-size: 0.82rem;
+  }
+
+  .menuModalClose {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menuModalBody {
+    padding: 16px 12px 20px;
+  }
+
+  .menuModalItems {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .menuModalItem {
+    padding: 12px 8px;
+    border-radius: 11px;
+  }
+
+  .menuModalItem .menuItem h3 {
+    font-size: 0.82rem;
+  }
+
+  .menuModalItem .eggNote {
+    font-size: 0.65rem;
+  }
+}
+
+/* Very small phones */
+
+@media (max-width: 360px) {
+  .menuModalItems {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .menuModalOverlay,
+  .menuModal,
+  .menuModalItem,
+  .menuModalClose {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL CTA — TORN PAPER BACKGROUND + INTERACTIVE FOOD
+   ========================================================= */
+
+.menuPage .finalCta {
+  background-color: transparent !important;
+  background-image: url("/assets/rolls-mania/menu_page/final-cta-bg.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+
+  /* Stretch the torn-paper artwork vertically */
+  background-size: 100% 115% !important;
+
+  padding: 100px 0 110px;
+  overflow: hidden;
+}
+
+/* Keep the content and food above the background */
+.menuPage .finalCtaInner {
+  position: relative;
+  z-index: 2;
+}
+/* Make the small heading clearly visible */
+.menuPage .finalCta .sectionLabel {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+/* Make all heading text visible */
+.menuPage .finalCta .sectionTitle {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 8px rgba(65, 30, 30, 0.12);
+}
+/* Keep highlighted heading words white too */
+.menuPage .finalCta .sectionTitle span {
+  color: #ffffff !important;
+}
+/* Improve paragraph contrast */
+.menuPage .finalCta .finalCtaCopy > p {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+/* Keep the button visible */
+.menuPage .finalCta .heroButton,
+.menuPage .finalCta .lightButton {
+  position: relative;
+  z-index: 3;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  background-color: rgb(17, 17, 17);
+  /* border-color: #986868; */
+}
+
+.menuPage .finalCtaFood {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  justify-self: center;
+
+  transform: translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0);
+
+  transition: transform 0.35s ease-out;
+  will-change: transform;
+}
+
+.menuPage .finalCtaFoodImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  filter: drop-shadow(0 18px 22px rgba(45, 20, 15, 0.16));
+  transition: transform 0.25s ease-out, filter 0.3s;
+  animation: finalCtaFoodFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes finalCtaFoodFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .menuPage .finalCta {
+    padding: 65px 0;
+  }
+
+  .menuPage .finalCtaInner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 24px;
+  }
+
+  .menuPage .finalCtaFood {
+    max-width: 420px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .menuPage .finalCta {
+    /* background-size: 100% 110% !important; */
+    background-size: 350% 130% !important;
+
+    background-position: center center !important;
+    padding: 65px 0 55px;
+  }
+
+  .menuPage .finalCta .sectionTitle {
+    color: #ffffff !important;
+  }
+
+  .menuPage .finalCta .finalCtaCopy > p {
+    color: #ffffff !important;
+  }
+  .menuPage .finalCtaInner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .menuPage .finalCtaCopy {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .menuPage .finalCtaFood {
+    width: 85%;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .menuPage .finalCtaFood {
+    transition: none;
+    transform: none !important;
+  }
+
+  .menuPage .finalCtaFoodImage {
+    animation: none;
+  }
+}
+
+/* FINAL CTA BUTTON HOVER — WHITE BACKGROUND + BLACK TEXT */
+
+.menuPage .finalCta .heroButton:hover,
+.menuPage .finalCta .heroButton:focus-visible {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #111111 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+}
+
+/* Keep the arrow black on hover */
+/* .menuPage .finalCta .heroButton:hover svg,
+.menuPage .finalCta .heroButton:focus-visible svg {
+  color: #111111 !important;
+  stroke: #111111 !important;
+} */

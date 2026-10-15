@@ -444,7 +444,7 @@ export default function AboutUs() {
               customer.
             </p>
 
-            <Link href="/#menu" className={styles.mintButton}>
+            <Link href="/MenuPage" className={styles.mintButton}>
               <span>EXPLORE OUR MENU</span>
               <FiArrowRight aria-hidden="true" />
             </Link>
@@ -532,7 +532,7 @@ export default function AboutUs() {
               <span>DELICIOUS FOOD LOVERS.</span>
             </h2>
 
-            <Link href="/#menu" className={styles.bannerLink}>
+            <Link href="/MenuPage" className={styles.bannerLink}>
               DISCOVER OUR MENU <FiArrowRight aria-hidden="true" />
             </Link>
           </div>
