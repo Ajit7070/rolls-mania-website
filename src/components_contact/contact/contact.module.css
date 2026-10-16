@@ -145,6 +145,9 @@
   text-transform: uppercase;
   text-wrap: balance;
 }
+.heroTitle span {
+  color: #315d58;
+}
 
 .heroTitle span {
   display: block;

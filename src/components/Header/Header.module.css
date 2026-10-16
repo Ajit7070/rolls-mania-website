@@ -229,7 +229,7 @@
 
   .logoImage {
     /* width: 245px; */
-    width: 185px;
+    width: 130px;
   }
 
   .desktopNav {
@@ -262,7 +262,7 @@
   }
 
   .logoImage {
-    width: 205px;
+    width: 130px;
   }
 
   .desktopNav {
@@ -297,7 +297,8 @@
   }
 
   .logoImage {
-    width: 175px;
+    /* width: 175px; */
+    width: 100px;
   }
 
   .desktopNav {
@@ -418,7 +419,8 @@
   }
 
   .logoImage {
-    width: 155px;
+    /* width: 155px; */
+    width: 100px;
   }
 
   .menuButton {

@@ -1,0 +1,1144 @@
+/* =========================================================
+   OPEN YOUR RM — ROLLS MANIA
+   Responsive franchise enquiry page
+   ========================================================= */
+
+.page {
+  /* --open-red: #ed1c24;
+  --open-red-dark: #c9161d;
+  --open-mint: #9fd8cf;
+  --open-rose: #976862; */
+  --open-red: rgb(152, 104, 104);
+  --open-red-dark: rgb(125, 80, 80);
+  --open-mint: #9fd8cf;
+  --open-rose: rgb(152, 104, 104);
+  --open-teal: rgb(49, 93, 88);
+  --open-dark: #202020;
+  --open-muted: #696969;
+  --open-cream: #fff8f2;
+
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--open-dark);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+.page a {
+  text-decoration: none;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 540px;
+  overflow: hidden;
+
+  background-image: url("/assets/rolls-mania/openyourrm/openyourrm-hero-bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Remove the previous red hero decorations */
+.heroPattern {
+  display: none;
+}
+
+/* Main two-column layout */
+.heroContainer {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+/* Left-side text */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+/* Eyebrow — requested font */
+.eyebrow {
+  display: inline-block;
+  color: #986868;
+  font-family: Lato-Heavy, sans-serif;
+  font-size: 0.88rem;
+  /* font-weight: 900; */
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* Main heading */
+.heroTitle {
+  margin: 20px 0 18px;
+  color: #fff;
+  font-family: PassionOne-Bold, sans-serif;
+  font-size: clamp(4.4rem, 9vw, 8rem);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.heroTitle span {
+  margin-top: 9px;
+  color: #315d58;
+  /* margin-left: 10px; */
+}
+
+/* Description */
+.heroDescription {
+  max-width: 520px;
+  margin: 22px 0 28px;
+  color: #244440;
+  font-family: var(--font-roboto), sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* CTA button */
+.heroButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 46px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 5px;
+  background: #fff;
+  color: #315d58;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.heroButton > span {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.heroButton:hover {
+  background: #315d58;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.heroButton:hover span {
+  transform: translate(3px, 3px);
+}
+/* Right-side transparent food image */
+.heroFoodMotion {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+
+  animation: openRMFoodFloat 4.5s ease-in-out infinite;
+}
+
+.heroFoodImage {
+  display: block;
+  width: 115%;
+  max-width: 680px;
+  height: auto;
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+
+  filter: drop-shadow(0 18px 22px rgba(0, 55, 49, 0.13));
+}
+
+/* Floating animation */
+@keyframes openRMFoodFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+/* Bottom hero label */
+.heroBottom {
+  position: relative;
+  z-index: 1;
+  margin-top: 25px;
+  transform: translateY(30px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+
+  width: 100%;
+  padding: 0 20px 28px;
+
+  color: #315d58;
+  font-family: Lato-Heavy, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bottomDivider {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: #315d58;
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes openHeroText {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes openHeroVisual {
+  from {
+    opacity: 0;
+    transform: translateX(25px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes openRingRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes openSparkle {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(0.9) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(15deg);
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
+  .heroContainer {
+    min-height: 570px;
+    column-gap: 70px;
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  .heroContainer {
+    min-height: 470px;
+    column-gap: 25px;
+    padding-top: 65px;
+    padding-bottom: 75px;
+  }
+
+  .heroTitle {
+    font-size: clamp(55px, 7vw, 82px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .heroContainer {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 18px;
+    padding: 45px 24px;
+  }
+
+  .heroTitle {
+    font-size: clamp(3.5rem, 6.5vw, 5.3rem);
+    line-height: 0.9;
+  }
+
+  .heroDescription {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .heroFoodImage {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+/* Tablet — updated food image layout */
+@media (max-width: 991px) {
+  .heroContainer {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    min-height: 420px;
+    column-gap: 15px;
+  }
+
+  .heroTitle {
+    font-size: clamp(49px, 7vw, 69px);
+  }
+
+  .heroDescription {
+    font-size: 13px;
+  }
+
+  .heroFoodImage {
+    width: 110%;
+    max-width: 420px;
+  }
+
+  .heroBottom {
+    font-size: 9px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    background-position: center;
+  }
+
+  .heroContainer {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 12px;
+    padding: 40px 20px 18px;
+  }
+
+  .heroContent {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .hero .eyebrow {
+    display: inline-block;
+    max-width: 100%;
+    font-family: Lato-Heavy, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+  }
+
+  .heroTitle {
+    margin: 18px 0;
+    font-size: clamp(55px, 13vw, 82px);
+    line-height: 0.9;
+  }
+
+  .heroTitle span {
+    margin-top: 5px;
+  }
+
+  .heroDescription {
+    max-width: 500px;
+    margin: 18px 0 24px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .heroButton {
+    min-height: 48px;
+    gap: 12px;
+    max-width: 100%;
+    padding: 0 16px;
+    font-size: 10px;
+  }
+
+  .heroFoodMotion {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .heroFoodImage {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .heroBottom {
+    gap: 10px;
+    padding: 0 15px 22px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 12px;
+    transform: translateY(15px);
+  }
+
+  .bottomDivider {
+    flex-shrink: 0;
+    width: 20px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .heroContainer {
+    padding: 34px 16px 16px;
+  }
+
+  .heroTitle {
+    font-size: clamp(48px, 13vw, 65px);
+  }
+
+  .heroDescription {
+    font-size: 12px;
+  }
+
+  .heroFoodImage {
+    max-width: 360px;
+  }
+
+  .heroBottom {
+    gap: 7px;
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+
+  .bottomDivider {
+    width: 13px;
+  }
+}
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+/* Reduced motion — new hero */
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .heroFoodMotion {
+    animation: none !important;
+  }
+
+  .heroButton,
+  .heroButton span {
+    transition: none !important;
+  }
+
+  .heroButton:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   OPEN YOUR RM — FRANCHISE DETAILS SECTION
+   Reference-matched design
+   ========================================================= */
+
+.franchiseSection {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0 55px;
+  /* background: #fff8f2; */
+  color: #292323;
+}
+
+/* Subtle decorative background illustrations */
+.franchiseSection::before,
+.franchiseSection::after {
+  position: absolute;
+  z-index: 0;
+  color: rgba(237, 104, 59, 0.12);
+  font-size: 100px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.franchiseSection::before {
+  content: "♧";
+  top: -12px;
+  right: 7%;
+  transform: rotate(-28deg);
+}
+
+.franchiseSection::after {
+  content: "♧";
+  right: 7%;
+  bottom: 5px;
+  transform: rotate(28deg);
+}
+
+/* Main two-column layout */
+.franchiseLayout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.82fr);
+  align-items: start;
+  gap: 40px;
+}
+
+/* =========================================================
+   LEFT SIDE — INTRODUCTION AND CRITERIA
+   ========================================================= */
+
+.franchiseContent {
+  min-width: 0;
+  padding-top: 0;
+}
+
+.franchiseIntro {
+  margin: 0 0 18px;
+  color: #292323;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.franchiseDescription {
+  margin: 0 0 26px;
+  color: #504846;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* Each category with an icon on the left */
+.franchiseGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.franchiseGroup {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  margin: 0;
+}
+
+/* Circular icon background */
+.groupIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: rgba(152, 104, 104, 0.12);
+  color: rgb(152, 104, 104);
+}
+
+.groupIcon svg {
+  width: 23px;
+  height: 23px;
+  stroke-width: 2.3;
+}
+
+.groupContent {
+  min-width: 0;
+}
+
+.groupContent h3 {
+  margin: 0 0 10px;
+  color: rgb(152, 104, 104);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.groupList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.groupList li {
+  display: grid;
+  grid-template-columns: 15px minmax(0, 1fr);
+  align-items: start;
+  gap: 9px;
+  color: #49413e;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* Red check circles */
+.redCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: rgb(152, 104, 104);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* FAQ button */
+.franchiseFaq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  min-height: 44px;
+  margin-top: 28px;
+  padding: 12px 26px;
+  border: 1px solid rgb(49, 93, 88);
+  border-radius: 6px;
+  background: rgb(49, 93, 88);
+  color: #ffffff;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.franchiseFaq:hover {
+  transform: translateY(-2px);
+  background: #986868;
+  border-color: rgb(152, 104, 104);
+  color: #ffffff;
+}
+
+/* =========================================================
+   RIGHT SIDE — FILL IN THE DETAILS CARD
+   ========================================================= */
+
+.enquiryCard {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  margin-top: 4px;
+  padding: 27px 25px 25px;
+  border: 1px solid rgba(238, 225, 218, 0.7);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(76, 42, 29, 0.07);
+}
+
+/* Form heading */
+.enquiryHeading {
+  margin: 0 0 23px;
+}
+
+.enquiryHeading h2 {
+  margin: 0;
+  color: #171717;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Form spacing */
+.enquiryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Input field with icon inside the left side */
+.enquiryField {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1.5px solid #dedbd9;
+  border-radius: 11px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.025);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.enquiryField:focus-within {
+  border-color: rgb(152, 104, 104);
+  box-shadow: 0 0 0 3px rgba(152, 104, 104, 0.12);
+}
+
+.enquiryField > svg {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  color: #51352e;
+  stroke-width: 2.5;
+}
+
+.enquiryField input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 47px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #292323;
+  box-shadow: none;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 13px;
+  line-height: normal;
+}
+
+.enquiryField input::placeholder {
+  color: #77716e;
+  opacity: 1;
+}
+
+.enquiryField input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Validation message */
+.enquiryError {
+  margin: 0;
+  color: rgb(152, 104, 104);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Red application button */
+.enquirySubmit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 7px;
+  padding: 0 17px 0 20px;
+  border: 1px solid rgb(152, 104, 104);
+  border-radius: 10px;
+  background: rgb(152, 104, 104);
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.enquirySubmit > span:first-child {
+  min-width: 0;
+}
+
+.enquirySubmit .enquiryArrow {
+  flex-shrink: 0;
+  font-size: 19px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.enquirySubmit:hover {
+  transform: translateY(-2px);
+  border-color: rgb(125, 80, 80);
+  background: rgb(125, 80, 80);
+  color: #ffffff;
+  box-shadow: 0 7px 18px rgba(152, 104, 104, 0.2);
+}
+.enquirySubmit:hover .enquiryArrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   ENQUIRY COLUMN + FOOD ILLUSTRATION
+========================================== */
+
+.enquiryColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Space directly below the form card */
+.detailsFoodStage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 500px;
+  min-height: 230px;
+  margin: 8px auto 0;
+
+  overflow: visible;
+  perspective: 900px;
+}
+
+/* Transparent PNG with interactive movement */
+.detailsFoodImage {
+  display: block;
+  width: 100%;
+  max-width: 490px;
+  height: auto;
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+
+  filter: drop-shadow(0 12px 18px rgba(76, 42, 29, 0.12));
+
+  transition: transform 180ms ease-out;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .detailsFoodStage {
+    max-width: 420px;
+    min-height: 190px;
+    margin-top: 10px;
+  }
+
+  .detailsFoodImage {
+    max-width: 420px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .enquiryColumn {
+    width: 100%;
+  }
+
+  .detailsFoodStage {
+    width: 100%;
+    max-width: 460px;
+    min-height: auto;
+    margin-top: 12px;
+    padding: 0 8px;
+  }
+
+  .detailsFoodImage {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+  .detailsFoodStage {
+    margin-top: 8px;
+    padding: 0;
+  }
+
+  .detailsFoodImage {
+    max-width: 340px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .detailsFoodImage {
+    transition: none;
+  }
+}
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+  .franchiseSection {
+    padding: 40px 0 45px;
+  }
+
+  .franchiseLayout {
+    grid-template-columns: minmax(0, 1fr) minmax(285px, 0.85fr);
+    gap: 25px;
+  }
+
+  .franchiseIntro {
+    font-size: 18px;
+  }
+
+  .franchiseDescription {
+    font-size: 13px;
+  }
+
+  .franchiseGroups {
+    gap: 20px;
+  }
+
+  .franchiseGroup {
+    grid-template-columns: 39px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .groupIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .groupIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .groupContent h3 {
+    font-size: 15px;
+  }
+
+  .groupList li {
+    font-size: 12px;
+  }
+
+  .enquiryCard {
+    padding: 23px 19px;
+    border-radius: 20px;
+  }
+
+  .enquiryHeading h2 {
+    font-size: 24px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .franchiseSection {
+    padding: 38px 0 45px;
+  }
+
+  .franchiseLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .franchiseIntro {
+    margin-bottom: 13px;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .franchiseDescription {
+    margin-bottom: 21px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .franchiseGroups {
+    gap: 22px;
+  }
+
+  .franchiseGroup {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .groupIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .groupIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .groupContent h3 {
+    font-size: 15px;
+  }
+
+  .groupList {
+    gap: 7px;
+  }
+
+  .groupList li {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .franchiseFaq {
+    margin-top: 24px;
+  }
+
+  .enquiryCard {
+    max-width: 480px;
+    justify-self: center;
+    margin-top: 0;
+    padding: 27px 22px;
+    border-radius: 21px;
+  }
+
+  .enquiryHeading {
+    margin-bottom: 21px;
+  }
+
+  .enquiryHeading h2 {
+    font-size: 23px;
+  }
+
+  .enquiryForm {
+    gap: 12px;
+  }
+
+  .enquiryField {
+    min-height: 47px;
+  }
+
+  .enquiryField input {
+    height: 44px;
+  }
+
+  .enquirySubmit {
+    min-height: 48px;
+    margin-top: 6px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .franchiseSection {
+    padding: 30px 0 38px;
+  }
+
+  .franchiseIntro {
+    font-size: 16px;
+  }
+
+  .franchiseGroup {
+    grid-template-columns: 37px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .groupIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .groupIcon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .groupContent h3 {
+    font-size: 14px;
+  }
+
+  .groupList li {
+    font-size: 11px;
+  }
+
+  .enquiryCard {
+    padding: 23px 16px;
+    border-radius: 18px;
+  }
+
+  .enquiryHeading h2 {
+    font-size: 21px;
+  }
+
+  .enquirySubmit {
+    padding-right: 12px;
+    padding-left: 14px;
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .franchiseFaq,
+  .enquiryField,
+  .enquirySubmit,
+  .enquirySubmit .enquiryArrow {
+    transition: none !important;
+  }
+}

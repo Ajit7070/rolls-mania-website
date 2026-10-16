@@ -69,7 +69,7 @@ export default function Header() {
               </a>
             ))}
 
-            <a href="#open-your-rm" className={styles.rmButton}>
+            <a href="/OpenYourRM" className={styles.rmButton}>
               OPEN YOUR RM
             </a>
           </nav>
@@ -105,7 +105,7 @@ export default function Header() {
             ))}
 
             <a
-              href="#open-your-rm"
+              href="/OpenYourRM"
               className={styles.mobileRmButton}
               onClick={closeMenu}
             >
