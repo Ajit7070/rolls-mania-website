@@ -318,7 +318,7 @@
   display: inline-block;
   color: rgb(155, 116, 113);
   font-family: Lato-Heavy, sans-serif;
-  font-size: 11px;
+  font-size: 20px;
   font-weight: 900;
   letter-spacing: 1.5px;
   line-height: 1.6;
@@ -1093,5 +1093,62 @@
 
   .heroVisual img {
     max-width: 320px;
+  }
+}
+
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Occupation — business subsection */
+.businessSectionHeading {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding: 16px 0 12px;
+  border-top: 1px solid #eee8e4;
+}
+
+.businessSectionHeading h3 {
+  margin: 0;
+  color: var(--form-accent);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* Full declaration and disclaimer text */
+.disclaimerText {
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 8px;
+  color: #615954;
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.disclaimerText p {
+  margin: 0 0 12px;
+}
+
+.disclaimerText p:last-child {
+  margin-bottom: 0;
+}
+
+.disclaimerText::-webkit-scrollbar {
+  width: 6px;
+}
+
+.disclaimerText::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #d5c4bf;
+}
+
+@media (max-width: 650px) {
+  .businessSectionHeading {
+    padding-top: 14px;
+  }
+
+  .disclaimerText {
+    max-height: 400px;
+    font-size: 12px;
   }
 }

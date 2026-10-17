@@ -187,7 +187,7 @@ const fieldGroups = {
   occupation: [
     {
       name: "currentOccupation",
-      label: "Current Occupation",
+      label: "3.1 Current occupation",
       required: true,
       type: "select",
       options: ["Business", "Employed"],
@@ -195,8 +195,7 @@ const fieldGroups = {
     },
     {
       name: "employerDesignation",
-      label: "Name of Current Employer / Designation",
-      placeholder: "Enter employer and designation",
+      label: "3.2 Name of Current Employer Designation",
       full: true,
     },
   ],
@@ -204,49 +203,37 @@ const fieldGroups = {
   business: [
     {
       name: "companyNames",
-      label: "Company Name(s)",
-      required: true,
+      label: "3.a.1 Company Name(s)",
       full: true,
     },
     {
       name: "businessType",
-      label: "Type of Business",
-      required: true,
+      label: "3.a.2 Proprietary/Partnership/ Private Ltd/ Public Ltd.",
       type: "select",
-      options: [
-        "Proprietorship",
-        "Partnership",
-        "Private Limited",
-        "Public Limited",
-      ],
+      options: ["Proprietary", "Partnership", "Private Ltd.", "Public Ltd."],
       full: true,
     },
     {
       name: "natureOfBusiness",
-      label: "Nature of Business",
-      required: true,
+      label: "3.a.3 Nature of Business",
     },
     {
       name: "productsServices",
-      label: "Products / Services",
-      required: true,
+      label: "3.a.4 Products/Service",
     },
     {
       name: "yearsInBusiness",
-      label: "Years in Business",
-      required: true,
+      label: "3.a.5 Years in Business",
       type: "number",
     },
     {
       name: "peopleEmployed",
-      label: "People Employed",
-      required: true,
+      label: "3.a.6 People Employed",
       type: "number",
     },
     {
       name: "businessTurnover",
-      label: "Turnover (in Rs. lakhs)",
-      required: true,
+      label: "3.a.7 Turnover (Rs. in lakhs)",
       type: "number",
       full: true,
     },
@@ -754,25 +741,114 @@ export default function ApplicationForm() {
             </div>
 
             <div className={styles.fieldGrid}>
-              {currentFields.map((field) => (
-                <Field
-                  key={field.name}
-                  field={field}
-                  value={values[field.name]}
-                  onChange={updateField}
-                  error={errors[field.name]}
-                />
-              ))}
+              {activeStep === 2 ? (
+                <>
+                  {fieldGroups.occupation.map((field) => (
+                    <Field
+                      key={field.name}
+                      field={field}
+                      value={values[field.name]}
+                      onChange={updateField}
+                      error={errors[field.name]}
+                    />
+                  ))}
+
+                  {values.currentOccupation === "Business" && (
+                    <>
+                      <div className={styles.businessSectionHeading}>
+                        <h3>3.a (To be filled in by those in Business)</h3>
+                      </div>
+
+                      {fieldGroups.business.map((field) => (
+                        <Field
+                          key={field.name}
+                          field={field}
+                          value={values[field.name]}
+                          onChange={updateField}
+                          error={errors[field.name]}
+                        />
+                      ))}
+                    </>
+                  )}
+                </>
+              ) : (
+                currentFields.map((field) => (
+                  <Field
+                    key={field.name}
+                    field={field}
+                    value={values[field.name]}
+                    onChange={updateField}
+                    error={errors[field.name]}
+                  />
+                ))
+              )}
             </div>
 
             {activeStep === 5 && (
               <div className={styles.disclaimer}>
                 <h3>Declaration and Disclaimer</h3>
                 <p>
-                  I confirm that the information provided in this application is
-                  accurate and complete to the best of my knowledge. I
-                  understand that the information may be reviewed by Rolls Mania
-                  as part of its franchise evaluation process.
+                  I understand that the granting of a franchise is at the sole
+                  discretion of the Franchisor (Goldenoak Food and Beverages Pvt
+                  Ltd or its affiliate).
+                </p>
+
+                <p>
+                  I understand that I must be a citizen or permanent resident of
+                  India to purchase a franchise to be located in the country and
+                  that I must provide the requisite proof to the Franchisor
+                  prior to any franchise sale or transfer.
+                </p>
+
+                <p>
+                  For any franchise to be located outside of India, I understand
+                  that I must provide the requisite photo identification to the
+                  Franchisor to verify my identity prior to any sale or transfer
+                  and upon request during the term of any franchise agreement
+                  entered into with the Franchisor.
+                </p>
+
+                <p>
+                  I understand that any information I receive from the
+                  Franchisor or from any employee, agent or franchisee of the
+                  Franchisor or its affiliate is highly confidential
+                  (&quot;Confidential Information&quot;), has been developed
+                  with a great deal of effort and expense to the Franchisor, and
+                  is being made available to me solely because of this
+                  application. I agree that I shall treat and maintain all
+                  Confidential Information as confidential, and I shall not, at
+                  any time, without the express written consent of the
+                  Franchisor, disclose, publish, or divulge any Confidential
+                  Information to any person, firm, corporation or other entity,
+                  or use any Confidential Information, directly or indirectly,
+                  for my own benefit or the benefit of any person, firm,
+                  corporation or other entity, other than for the benefit of the
+                  Franchisor.
+                </p>
+
+                <p>
+                  I authorize the Franchisor or its designee to procure consumer
+                  or credit report and a criminal and general background search
+                  (collectively referred to as &ldquo;Screening&rdquo;).
+                </p>
+
+                <p>
+                  I understand that Franchisor can ask any document related to
+                  my personal and professional/business information and I will
+                  provide all the documents for the same to franchisor to best
+                  of my knowledge.
+                </p>
+
+                <p>
+                  Everything that I have stated in this application is true and
+                  I understand that the information provided by me will be
+                  relied upon by the Franchisor. I read, understand, and agree
+                  to all of the above. Additionally, I understand that the
+                  Franchisor may require me to pass a standardized Math and
+                  English exam. I understand that I will be required to provide
+                  the Franchisor with copies of my bank statements for the past
+                  six (6) months as verification of the liquid assets listed in
+                  the financial statement submitted to the Franchisor.
                 </p>
 
                 <label className={styles.consent}>
