@@ -1627,11 +1627,12 @@
 
 /* Hero button */
 .aboutPage .hero .darkButton {
-  background: rgb(201, 170, 163);
+  background: #986868;
   color: #fff;
 }
 
 .aboutPage .hero .darkButton:hover {
+  /* background: rgb(201, 170, 163); */
   background: rgb(155, 116, 113);
   color: #fff;
 }

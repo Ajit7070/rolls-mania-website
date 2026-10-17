@@ -12,11 +12,11 @@ const navItems = [
   },
   {
     label: "About Us",
-    href: "AboutUs",
+    href: "/AboutUs",
   },
   {
     label: "Menu",
-    href: "MenuPage",
+    href: "/MenuPage",
   },
   {
     label: "FAQ",
@@ -24,11 +24,11 @@ const navItems = [
   },
   {
     label: "Store Locator",
-    href: "StoreLocator",
+    href: "/StoreLocator",
   },
   {
     label: "Contact Us",
-    href: "contact",
+    href: "/contact",
   },
 ];
 

@@ -291,10 +291,9 @@ export default function ContactPage() {
                 aria-label="Breadcrumb"
               >
                 <Link href="/">Home</Link>
-
                 <FiChevronRight aria-hidden="true" />
-
                 <span aria-current="page">Contact Us</span>
+                <FiArrowRight aria-hidden="true" />
               </nav>
             </div>
           </div>

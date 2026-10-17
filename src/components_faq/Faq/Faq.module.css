@@ -648,7 +648,7 @@
   }
 
   .heroFood {
-    right: -8%;
+    right: 0%;
     width: 58%;
   }
 
@@ -1112,7 +1112,7 @@
    ========================================= */
 
 .heroButton {
-  background: rgb(201, 170, 163);
+  background: #986868;
   color: #ffffff;
 }
 
@@ -1145,7 +1145,8 @@
    ========================================= */
 
 .bottomCtaButton {
-  background: var(--rm-black);
+  /* background: var(--rm-black); */
+  background: #986868;
   color: var(--rm-white);
 }
 
@@ -1486,4 +1487,13 @@
     animation: none;
     transition: none;
   }
+}
+
+/* Bottom CTA title — split brand colors */
+.bottomCtaTitleGreen {
+  color: var(--rm-green);
+}
+
+.bottomCtaTitleRose {
+  color: #986868;
 }

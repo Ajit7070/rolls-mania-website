@@ -156,12 +156,6 @@ export default function Faq() {
               className={styles.heroFoodImage}
             />
           </div>
-
-          <span className={styles.heroDecoration} aria-hidden="true">
-            GOODNESS
-            <br />
-            ROLLED
-          </span>
         </div>
 
         {/* <div className={styles.heroBottomLine} aria-hidden="true">
@@ -338,7 +332,10 @@ export default function Faq() {
                 HUNGER DOESN&apos;T WAIT
               </span>
 
-              <h2 className={styles.bottomCtaTitle}>READY TO ROLL?</h2>
+              <h2 className={styles.bottomCtaTitle}>
+                <span className={styles.bottomCtaTitleGreen}>READY TO</span>{" "}
+                <span className={styles.bottomCtaTitleRose}>ROLL?</span>
+              </h2>
             </div>
 
             <div className={styles.bottomCtaFood}>

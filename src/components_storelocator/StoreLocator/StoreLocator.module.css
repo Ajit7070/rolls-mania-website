@@ -149,7 +149,7 @@
   padding: 0 23px;
   border: 0;
   border-radius: 5px;
-  background: var(--sl-rose-light);
+  background: #986868;
   color: #fff;
   font-family: var(--font-poppins), sans-serif;
   font-size: 0.76rem;
@@ -163,7 +163,7 @@
 
 .heroButton:hover,
 .locationButton:hover:not(:disabled) {
-  background: var(--sl-rose);
+  background: rgb(155, 116, 113);
   color: #fff;
   transform: translateY(-2px);
 }
