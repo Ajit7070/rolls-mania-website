@@ -1251,5 +1251,17 @@
     "country": "India",
     "postal": "560084",
     "phone": "+91 9225008473"
+  },
+  {
+    "id": "132",
+    "name": "JP Nagar",
+    "lat": "12.887500",
+    "lng": "77.582361",
+    "address": "SRI SKANDA ARCADE, SHOP NO.2, GROUND FLOOR, #75 AND 76, 1ST MAIN, SANTHRUPATHINAGAR J P NAGAR 7TH PHASE, BANGALORE, Bommanahalli, B.B.M.P South, Karnataka - 560078",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "country": "India",
+    "postal": "560078",
+    "phone": "+91 9225026080"
   }
 ]
